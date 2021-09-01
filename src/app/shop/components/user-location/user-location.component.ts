@@ -17,7 +17,7 @@ import { LocationService } from '../../services/location.service';
 export class UserLocationComponent implements OnInit, AfterViewInit {
   @ViewChild('searchCityInput') searchingInput?: ElementRef;
 
-  cityListHide: boolean = true;
+  cityListShow: boolean = false;
 
   userLocation: string = '';
 
@@ -63,11 +63,11 @@ export class UserLocationComponent implements OnInit, AfterViewInit {
     this.cities$$.next([]);
   }
 
-  onCityListHide() {
-    this.cityListHide = !this.cityListHide;
+  onCityListShow() {
+    this.cityListShow = !this.cityListShow;
   }
 
   onSaveCurrentCity() {
-    this.cityListHide = true;
+    this.cityListShow = false;
   }
 }

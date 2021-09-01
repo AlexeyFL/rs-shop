@@ -9,5 +9,44 @@
   margin: auto;
 }
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+.btn {
+  cursor: pointer;
+}
+
+.main {
+  height: 100vh;
+  .container {
+    position: relative;
+    height: 100%;
+  }
+  .popup {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    background: #3b9703;
+    padding: 20px;
+    box-sizing: border-box;
+    transform: scale(0);
+    transition: transform 0.3s;
+    &.active {
+      transform: scale(1);
+    }
+  }
+}

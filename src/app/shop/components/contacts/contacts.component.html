@@ -1,0 +1,26 @@
+<div class="contacts">
+  <a href="viber://chat?number=%2B375295214444" class="contacts__link"
+    ><i class="fab fa-viber"></i>viber</a
+  >
+  <a href="tel:+375295214444" class="contacts__link"
+    ><i class="fas fa-phone-alt"></i>+375295214444</a
+  >
+  <button (click)="onShowDrop()" class="btn contacts__btn">More</button>
+  <ul [ngClass]="{ show: showContactsDrop }" class="contacts__drop">
+    <li>
+      <a href="tel:+375295214444" class="contacts__link"
+        ><i class="fas fa-phone-alt"></i>+375295214444</a
+      >
+    </li>
+    <li>
+      <a href="tel:+375295214444" class="contacts__link"
+        ><i class="fas fa-phone-alt"></i>+375295214444</a
+      >
+    </li>
+    <li>
+      <a href="tel:+375295214444" class="contacts__link"
+        ><i class="fab fa-viber"></i>viber</a
+      >
+    </li>
+  </ul>
+</div>

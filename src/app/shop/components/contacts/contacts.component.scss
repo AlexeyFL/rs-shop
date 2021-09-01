@@ -1,8 +1,9 @@
-.user-location {
+.contacts {
   position: relative;
-  .cities {
+  &__drop {
     position: absolute;
     top: 100%;
+    right: 0;
     transform: scale(0);
     transition: transform 0.3s;
     &.show {

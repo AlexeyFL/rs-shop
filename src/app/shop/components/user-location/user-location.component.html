@@ -1,20 +1,22 @@
-<button (click)="onCityListHide()">
-  <mat-icon aria-hidden="false" aria-label="home icon">home</mat-icon>
-  {{ userLocation }}
-</button>
+<div class="user-location">
+  <button class="btn user-location__btn" (click)="onCityListShow()">
+    <mat-icon aria-hidden="false" aria-label="home icon">home</mat-icon>
+    {{ userLocation }}
+  </button>
 
-<div [ngClass]="{ hide: cityListHide }" class="cities">
-  <div class="cities__header">Выберите город</div>
-  <input
-    #searchCityInput
-    class="cities__input"
-    type="text"
-    [value]="userLocation"
-  />
-  <ul class="city-list">
-    <li *ngFor="let city of cities$ | async" (click)="setCurrentCity($event)">
-      {{ city }}
-    </li>
-  </ul>
-  <button (click)="onSaveCurrentCity()" class="btn">Сохранить</button>
+  <div [ngClass]="{ show: cityListShow }" class="cities">
+    <div class="cities__header">Your city</div>
+    <input
+      #searchCityInput
+      class="cities__input"
+      type="text"
+      [value]="userLocation"
+    />
+    <ul class="city-list">
+      <li *ngFor="let city of cities$ | async" (click)="setCurrentCity($event)">
+        {{ city }}
+      </li>
+    </ul>
+    <button (click)="onSaveCurrentCity()" class="btn">Save</button>
+  </div>
 </div>

@@ -5,7 +5,6 @@ import { FooterComponent } from './components/footer/footer.component';
 import { MainComponent } from './components/main/main.component';
 import { ShopModule } from '../shop/shop.module';
 
-
 @NgModule({
   declarations: [HeaderComponent, FooterComponent, MainComponent],
   imports: [CommonModule, ShopModule],

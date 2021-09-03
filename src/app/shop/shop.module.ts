@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 import { UserLocationComponent } from './components/user-location/user-location.component';
 import { SharedModule } from '../shared/shared.module';
 import { ContactsComponent } from './components/contacts/contacts.component';
@@ -9,6 +10,7 @@ import { NavigationComponent } from './components/navigation/navigation.componen
 import { SearchComponent } from './components/search/search.component';
 import { AuthModule } from '../auth/auth.module';
 import { CategoriesComponent } from './components/categories/categories.component';
+import { SubcategoriesComponent } from './components/subcategories/subcategories.component';
 
 @NgModule({
   declarations: [
@@ -18,8 +20,15 @@ import { CategoriesComponent } from './components/categories/categories.componen
     NavigationComponent,
     SearchComponent,
     CategoriesComponent,
+    SubcategoriesComponent,
   ],
-  imports: [CommonModule, SharedModule, FormsModule, AuthModule],
+  imports: [
+    CommonModule,
+    SharedModule,
+    FormsModule,
+    AuthModule,
+    HttpClientModule,
+  ],
   exports: [
     UserLocationComponent,
     ContactsComponent,

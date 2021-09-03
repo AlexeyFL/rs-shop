@@ -1,3 +1,5 @@
+export const url = 'https://angular-mock.herokuapp.com/shop';
+
 export const cities = [
   'Бобруйск',
   'Барановичи',

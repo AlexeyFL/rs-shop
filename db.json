@@ -1,0 +1,981 @@
+{
+  "shop": {
+    "cities": [
+      "Бобруйск",
+      "Барановичи",
+      "Борисов",
+      "Барань",
+      "Белоозерск",
+      "Береза",
+      "Березино",
+      "Березовка",
+      "Браслав",
+      "Брест",
+      "Буда-Кошелево",
+      "Быхов",
+      "Василевичи",
+      "Верхнедвинск",
+      "Ветка",
+      "Вилейка",
+      "Витебск",
+      "Волковыск",
+      "Воложин",
+      "Высокое",
+      "Ганцевичи",
+      "Глубокое",
+      "Гомель",
+      "Горки",
+      "Городок",
+      "Гродно",
+      "Давид-Городок",
+      "Дзержинск",
+      "Дисна",
+      "Добруш",
+      "Докшицы",
+      "Дрогичин",
+      "Дубровно",
+      "Дятлово",
+      "Ельск",
+      "Жодино",
+      "Жабинка",
+      "Житковичи",
+      "Жлобин",
+      "Заславль",
+      "Иваново",
+      "Ивацевичи",
+      "Ивье",
+      "Калинковичи",
+      "Каменец",
+      "Кировск",
+      "Клецк",
+      "Климовичи",
+      "Кличев",
+      "Кобрин",
+      "Копыль",
+      "Коссово",
+      "Костюковичи",
+      "Кричев",
+      "Крупки",
+      "Лепель",
+      "Лида",
+      "Логойск",
+      "Лунинец",
+      "Любань",
+      "Ляховичи",
+      "Мозырь",
+      "Малорита",
+      "Марьина Горка",
+      "Микашевичи",
+      "Минск",
+      "Миоры",
+      "Могилев",
+      "Молодечно",
+      "Мосты",
+      "Мстиславль",
+      "Мядель",
+      "Новополоцк",
+      "Наровля",
+      "Несвиж",
+      "Новогрудок",
+      "Новолукомль",
+      "Орша",
+      "Осиповичи",
+      "Ошмяны",
+      "Пинск",
+      "Полоцк",
+      "Петриков",
+      "Поставы",
+      "Пружаны",
+      "Речица",
+      "Рогачев",
+      "Светлогорск",
+      "Свислочь",
+      "Сенно",
+      "Скидель",
+      "Славгород",
+      "Слоним",
+      "Слуцк",
+      "Смолевичи",
+      "Сморгонь",
+      "Солигорск",
+      "Старые Дороги",
+      "Столбцы",
+      "Столин",
+      "Толочин",
+      "Туров",
+      "Узда",
+      "Фаниполь",
+      "Хойники",
+      "Чаусы",
+      "Чашники",
+      "Червень",
+      "Чериков",
+      "Чечерск",
+      "Шклов",
+      "Щучин"
+    ],
+    "categories": [
+      {
+        "id": 0,
+        "categoryName": "Бытовая техника",
+        "icon": "",
+        "url": "bytovaya-tehnika",
+        "subcategories": [
+          {
+            "id": 3,
+            "goods": [
+              0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18,
+              19
+            ],
+            "name": "Холодильники",
+            "url": "holodilniki"
+          },
+          {
+            "id": 4,
+            "goods": [
+              20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35,
+              36, 37, 38, 39
+            ],
+            "name": "Вытяжки",
+            "url": "vityajki"
+          }
+        ]
+      },
+      {
+        "id": 1,
+        "categoryName": "Смартфоны, ТВ и электроника",
+        "icon": "",
+        "url": "smartphones",
+        "subcategories": [
+          {
+            "id": 7,
+            "goods": [
+              40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55,
+              56, 57, 58, 59
+            ],
+            "name": "Смартфоны",
+            "url": "smartphones"
+          },
+          {
+            "id": 8,
+            "goods": [
+              60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75,
+              76, 77, 78, 79
+            ],
+            "name": "Умные часы",
+            "url": "smart watch"
+          },
+          { "id": 9, "goods": [0], "name": "Смартфоны Apple", "url": "apple" },
+          {
+            "id": 10,
+            "goods": [0],
+            "name": "Кнопочные телефоны",
+            "url": "phones"
+          }
+        ]
+      }
+    ],
+    "goods": [
+      {
+        "goodId": 0,
+        "category": [3],
+        "imageUrl": "https://cdn21vek.by/img/galleries/498/651/preview/rf396rsix_smeg_5a182e04ae3c3.jpeg",
+        "name": "Холодильник с морозильником Smeg RF396RSIX",
+        "rate": 5,
+        "price": 300,
+        "amount": 20,
+        "popular": 5
+      },
+      {
+        "goodId": 1,
+        "category": [3],
+        "imageUrl": "https://cdn21vek.by/img/galleries/498/651/preview/rf396rsix_smeg_5a182e04ae3c3.jpeg",
+        "name": "Холодильник с морозильником Smeg RF396RSIX",
+        "rate": 5,
+        "price": 300,
+        "amount": 20,
+        "popular": 5
+      },
+      {
+        "goodId": 2,
+        "category": [3],
+        "imageUrl": "https://cdn21vek.by/img/galleries/498/651/preview/rf396rsix_smeg_5a182e04ae3c3.jpeg",
+        "name": "Холодильник с морозильником Smeg RF396RSIX",
+        "rate": 5,
+        "price": 300,
+        "amount": 20,
+        "popular": 5
+      },
+      {
+        "goodId": 3,
+        "category": [3],
+        "imageUrl": "https://cdn21vek.by/img/galleries/498/651/preview/rf396rsix_smeg_5a182e04ae3c3.jpeg",
+        "name": "Холодильник с морозильником Smeg RF396RSIX",
+        "rate": 5,
+        "price": 300,
+        "amount": 20,
+        "popular": 5
+      },
+      {
+        "goodId": 4,
+        "category": [3],
+        "imageUrl": "https://cdn21vek.by/img/galleries/498/651/preview/rf396rsix_smeg_5a182e04ae3c3.jpeg",
+        "name": "Холодильник с морозильником Smeg RF396RSIX",
+        "rate": 5,
+        "price": 300,
+        "amount": 20,
+        "popular": 5
+      },
+      {
+        "goodId": 5,
+        "category": [3],
+        "imageUrl": "https://cdn21vek.by/img/galleries/498/651/preview/rf396rsix_smeg_5a182e04ae3c3.jpeg",
+        "name": "Холодильник с морозильником Smeg RF396RSIX",
+        "rate": 5,
+        "price": 300,
+        "amount": 20,
+        "popular": 5
+      },
+      {
+        "goodId": 6,
+        "category": [3],
+        "imageUrl": "https://cdn21vek.by/img/galleries/498/651/preview/rf396rsix_smeg_5a182e04ae3c3.jpeg",
+        "name": "Холодильник с морозильником Smeg RF396RSIX",
+        "rate": 5,
+        "price": 300,
+        "amount": 20,
+        "popular": 5
+      },
+      {
+        "goodId": 7,
+        "category": [3],
+        "imageUrl": "https://cdn21vek.by/img/galleries/498/651/preview/rf396rsix_smeg_5a182e04ae3c3.jpeg",
+        "name": "Холодильник с морозильником Smeg RF396RSIX",
+        "rate": 5,
+        "price": 300,
+        "amount": 20,
+        "popular": 5
+      },
+      {
+        "goodId": 8,
+        "category": [3],
+        "imageUrl": "https://cdn21vek.by/img/galleries/498/651/preview/rf396rsix_smeg_5a182e04ae3c3.jpeg",
+        "name": "Холодильник с морозильником Smeg RF396RSIX",
+        "rate": 5,
+        "price": 300,
+        "amount": 20,
+        "popular": 5
+      },
+      {
+        "goodId": 9,
+        "category": [3],
+        "imageUrl": "https://cdn21vek.by/img/galleries/498/651/preview/rf396rsix_smeg_5a182e04ae3c3.jpeg",
+        "name": "Холодильник с морозильником Smeg RF396RSIX",
+        "rate": 5,
+        "price": 300,
+        "amount": 20,
+        "popular": 5
+      },
+      {
+        "goodId": 10,
+        "category": [3],
+        "imageUrl": "https://cdn21vek.by/img/galleries/498/651/preview/rf396rsix_smeg_5a182e04ae3c3.jpeg",
+        "name": "Холодильник с морозильником Smeg RF396RSIX",
+        "rate": 5,
+        "price": 300,
+        "amount": 20,
+        "popular": 5
+      },
+      {
+        "goodId": 11,
+        "category": [3],
+        "imageUrl": "https://cdn21vek.by/img/galleries/498/651/preview/rf396rsix_smeg_5a182e04ae3c3.jpeg",
+        "name": "Холодильник с морозильником Smeg RF396RSIX",
+        "rate": 5,
+        "price": 300,
+        "amount": 20,
+        "popular": 5
+      },
+      {
+        "goodId": 12,
+        "category": [3],
+        "imageUrl": "https://cdn21vek.by/img/galleries/498/651/preview/rf396rsix_smeg_5a182e04ae3c3.jpeg",
+        "name": "Холодильник с морозильником Smeg RF396RSIX",
+        "rate": 5,
+        "price": 300,
+        "amount": 20,
+        "popular": 5
+      },
+      {
+        "goodId": 13,
+        "category": [3],
+        "imageUrl": "https://cdn21vek.by/img/galleries/498/651/preview/rf396rsix_smeg_5a182e04ae3c3.jpeg",
+        "name": "Холодильник с морозильником Smeg RF396RSIX",
+        "rate": 5,
+        "price": 300,
+        "amount": 20,
+        "popular": 5
+      },
+      {
+        "goodId": 14,
+        "category": [3],
+        "imageUrl": "https://cdn21vek.by/img/galleries/498/651/preview/rf396rsix_smeg_5a182e04ae3c3.jpeg",
+        "name": "Холодильник с морозильником Smeg RF396RSIX",
+        "rate": 5,
+        "price": 300,
+        "amount": 20,
+        "popular": 5
+      },
+      {
+        "goodId": 15,
+        "category": [3],
+        "imageUrl": "https://cdn21vek.by/img/galleries/498/651/preview/rf396rsix_smeg_5a182e04ae3c3.jpeg",
+        "name": "Холодильник с морозильником Smeg RF396RSIX",
+        "rate": 5,
+        "price": 300,
+        "amount": 20,
+        "popular": 5
+      },
+      {
+        "goodId": 16,
+        "category": [3],
+        "imageUrl": "https://cdn21vek.by/img/galleries/498/651/preview/rf396rsix_smeg_5a182e04ae3c3.jpeg",
+        "name": "Холодильник с морозильником Smeg RF396RSIX",
+        "rate": 5,
+        "price": 300,
+        "amount": 20,
+        "popular": 5
+      },
+      {
+        "goodId": 17,
+        "category": [3],
+        "imageUrl": "https://cdn21vek.by/img/galleries/498/651/preview/rf396rsix_smeg_5a182e04ae3c3.jpeg",
+        "name": "Холодильник с морозильником Smeg RF396RSIX",
+        "rate": 5,
+        "price": 300,
+        "amount": 20,
+        "popular": 5
+      },
+      {
+        "goodId": 18,
+        "category": [3],
+        "imageUrl": "https://cdn21vek.by/img/galleries/498/651/preview/rf396rsix_smeg_5a182e04ae3c3.jpeg",
+        "name": "Холодильник с морозильником Smeg RF396RSIX",
+        "rate": 5,
+        "price": 300,
+        "amount": 20,
+        "popular": 5
+      },
+      {
+        "goodId": 19,
+        "category": [3],
+        "imageUrl": "https://cdn21vek.by/img/galleries/498/651/preview/rf396rsix_smeg_5a182e04ae3c3.jpeg",
+        "name": "Холодильник с морозильником Smeg RF396RSIX",
+        "rate": 5,
+        "price": 300,
+        "amount": 20,
+        "popular": 5
+      },
+      {
+        "goodId": 20,
+        "category": [4],
+        "imageUrl": "https://cdn21vek.by/img/galleries/496/603/preview/ksdd90vn2_smeg_5a13fe7b44717.png",
+        "name": "Вытяжка скрытая Smeg KSDD90VN-2",
+        "rate": 5,
+        "price": 300,
+        "amount": 3,
+        "popular": 5
+      },
+      {
+        "goodId": 21,
+        "category": [4],
+        "imageUrl": "https://cdn21vek.by/img/galleries/496/603/preview/ksdd90vn2_smeg_5a13fe7b44717.png",
+        "name": "Вытяжка скрытая Smeg KSDD90VN-2",
+        "rate": 5,
+        "price": 300,
+        "amount": 12,
+        "popular": 8
+      },
+      {
+        "goodId": 22,
+        "category": [4],
+        "imageUrl": "https://cdn21vek.by/img/galleries/496/603/preview/ksdd90vn2_smeg_5a13fe7b44717.png",
+        "name": "Вытяжка скрытая Smeg KSDD90VN-2",
+        "rate": 5,
+        "price": 300,
+        "amount": 12,
+        "popular": 8
+      },
+      {
+        "goodId": 23,
+        "category": [4],
+        "imageUrl": "https://cdn21vek.by/img/galleries/496/603/preview/ksdd90vn2_smeg_5a13fe7b44717.png",
+        "name": "Вытяжка скрытая Smeg KSDD90VN-2",
+        "rate": 5,
+        "price": 300,
+        "amount": 12,
+        "popular": 8
+      },
+      {
+        "goodId": 24,
+        "category": [4],
+        "imageUrl": "https://cdn21vek.by/img/galleries/496/603/preview/ksdd90vn2_smeg_5a13fe7b44717.png",
+        "name": "Вытяжка скрытая Smeg KSDD90VN-2",
+        "rate": 5,
+        "price": 300,
+        "amount": 12,
+        "popular": 8
+      },
+      {
+        "goodId": 25,
+        "category": [4],
+        "imageUrl": "https://cdn21vek.by/img/galleries/496/603/preview/ksdd90vn2_smeg_5a13fe7b44717.png",
+        "name": "Вытяжка скрытая Smeg KSDD90VN-2",
+        "rate": 5,
+        "price": 300,
+        "amount": 12,
+        "popular": 8
+      },
+      {
+        "goodId": 26,
+        "category": [4],
+        "imageUrl": "https://cdn21vek.by/img/galleries/496/603/preview/ksdd90vn2_smeg_5a13fe7b44717.png",
+        "name": "Вытяжка скрытая Smeg KSDD90VN-2",
+        "rate": 5,
+        "price": 300,
+        "amount": 12,
+        "popular": 8
+      },
+      {
+        "goodId": 27,
+        "category": [4],
+        "imageUrl": "https://cdn21vek.by/img/galleries/496/603/preview/ksdd90vn2_smeg_5a13fe7b44717.png",
+        "name": "Вытяжка скрытая Smeg KSDD90VN-2",
+        "rate": 5,
+        "price": 300,
+        "amount": 12,
+        "popular": 8
+      },
+      {
+        "goodId": 28,
+        "category": [4],
+        "imageUrl": "https://cdn21vek.by/img/galleries/496/603/preview/ksdd90vn2_smeg_5a13fe7b44717.png",
+        "name": "Вытяжка скрытая Smeg KSDD90VN-2",
+        "rate": 5,
+        "price": 300,
+        "amount": 12,
+        "popular": 8
+      },
+      {
+        "goodId": 29,
+        "category": [4],
+        "imageUrl": "https://cdn21vek.by/img/galleries/496/603/preview/ksdd90vn2_smeg_5a13fe7b44717.png",
+        "name": "Вытяжка скрытая Smeg KSDD90VN-2",
+        "rate": 5,
+        "price": 300,
+        "amount": 12,
+        "popular": 8
+      },
+      {
+        "goodId": 30,
+        "category": [4],
+        "imageUrl": "https://cdn21vek.by/img/galleries/496/603/preview/ksdd90vn2_smeg_5a13fe7b44717.png",
+        "name": "Вытяжка скрытая Smeg KSDD90VN-2",
+        "rate": 5,
+        "price": 300,
+        "amount": 12,
+        "popular": 8
+      },
+      {
+        "goodId": 31,
+        "category": [4],
+        "imageUrl": "https://cdn21vek.by/img/galleries/496/603/preview/ksdd90vn2_smeg_5a13fe7b44717.png",
+        "name": "Вытяжка скрытая Smeg KSDD90VN-2",
+        "rate": 5,
+        "price": 300,
+        "amount": 12,
+        "popular": 8
+      },
+      {
+        "goodId": 32,
+        "category": [4],
+        "imageUrl": "https://cdn21vek.by/img/galleries/496/603/preview/ksdd90vn2_smeg_5a13fe7b44717.png",
+        "name": "Вытяжка скрытая Smeg KSDD90VN-2",
+        "rate": 5,
+        "price": 300,
+        "amount": 12,
+        "popular": 8
+      },
+      {
+        "goodId": 33,
+        "category": [4],
+        "imageUrl": "https://cdn21vek.by/img/galleries/496/603/preview/ksdd90vn2_smeg_5a13fe7b44717.png",
+        "name": "Вытяжка скрытая Smeg KSDD90VN-2",
+        "rate": 5,
+        "price": 300,
+        "amount": 12,
+        "popular": 8
+      },
+      {
+        "goodId": 34,
+        "category": [4],
+        "imageUrl": "https://cdn21vek.by/img/galleries/496/603/preview/ksdd90vn2_smeg_5a13fe7b44717.png",
+        "name": "Вытяжка скрытая Smeg KSDD90VN-2",
+        "rate": 5,
+        "price": 300,
+        "amount": 12,
+        "popular": 8
+      },
+      {
+        "goodId": 35,
+        "category": [4],
+        "imageUrl": "https://cdn21vek.by/img/galleries/496/603/preview/ksdd90vn2_smeg_5a13fe7b44717.png",
+        "name": "Вытяжка скрытая Smeg KSDD90VN-2",
+        "rate": 5,
+        "price": 300,
+        "amount": 12,
+        "popular": 8
+      },
+      {
+        "goodId": 36,
+        "category": [4],
+        "imageUrl": "https://cdn21vek.by/img/galleries/496/603/preview/ksdd90vn2_smeg_5a13fe7b44717.png",
+        "name": "Вытяжка скрытая Smeg KSDD90VN-2",
+        "rate": 5,
+        "price": 300,
+        "amount": 12,
+        "popular": 8
+      },
+      {
+        "goodId": 37,
+        "category": [4],
+        "imageUrl": "https://cdn21vek.by/img/galleries/496/603/preview/ksdd90vn2_smeg_5a13fe7b44717.png",
+        "name": "Вытяжка скрытая Smeg KSDD90VN-2",
+        "rate": 5,
+        "price": 300,
+        "amount": 12,
+        "popular": 8
+      },
+      {
+        "goodId": 38,
+        "category": [4],
+        "imageUrl": "https://cdn21vek.by/img/galleries/496/603/preview/ksdd90vn2_smeg_5a13fe7b44717.png",
+        "name": "Вытяжка скрытая Smeg KSDD90VN-2",
+        "rate": 5,
+        "price": 300,
+        "amount": 12,
+        "popular": 8
+      },
+      {
+        "goodId": 39,
+        "category": [4],
+        "imageUrl": "https://cdn21vek.by/img/galleries/496/603/preview/ksdd90vn2_smeg_5a13fe7b44717.png",
+        "name": "Вытяжка скрытая Smeg KSDD90VN-2",
+        "rate": 5,
+        "price": 300,
+        "amount": 12,
+        "popular": 8
+      },
+      {
+        "goodId": 40,
+        "category": [7],
+        "imageUrl": "https://cdn21vek.by/img/galleries/6789/822/preview/galaxyzfold3512gbsmf926bzkgser_samsung_611637a8e99ec.jpeg",
+        "name": "Смартфон Samsung Galaxy Z Fold3 512GB / SM-F926BZKGSER",
+        "rate": 5,
+        "price": 300,
+        "amount": 12,
+        "popular": 8
+      },
+      {
+        "goodId": 41,
+        "category": [7],
+        "imageUrl": "https://cdn21vek.by/img/galleries/6789/822/preview/galaxyzfold3512gbsmf926bzkgser_samsung_611637a8e99ec.jpeg",
+        "name": "Смартфон Samsung Galaxy Z Fold3 512GB / SM-F926BZKGSER",
+        "rate": 5,
+        "price": 300,
+        "amount": 12,
+        "popular": 8
+      },
+      {
+        "goodId": 42,
+        "category": [7],
+        "imageUrl": "https://cdn21vek.by/img/galleries/6789/822/preview/galaxyzfold3512gbsmf926bzkgser_samsung_611637a8e99ec.jpeg",
+        "name": "Смартфон Samsung Galaxy Z Fold3 512GB / SM-F926BZKGSER",
+        "rate": 5,
+        "price": 300,
+        "amount": 12,
+        "popular": 8
+      },
+      {
+        "goodId": 43,
+        "category": [7],
+        "imageUrl": "https://cdn21vek.by/img/galleries/6789/822/preview/galaxyzfold3512gbsmf926bzkgser_samsung_611637a8e99ec.jpeg",
+        "name": "Смартфон Samsung Galaxy Z Fold3 512GB / SM-F926BZKGSER",
+        "rate": 5,
+        "price": 300,
+        "amount": 12,
+        "popular": 8
+      },
+      {
+        "goodId": 44,
+        "category": [7],
+        "imageUrl": "https://cdn21vek.by/img/galleries/6789/822/preview/galaxyzfold3512gbsmf926bzkgser_samsung_611637a8e99ec.jpeg",
+        "name": "Смартфон Samsung Galaxy Z Fold3 512GB / SM-F926BZKGSER",
+        "rate": 5,
+        "price": 300,
+        "amount": 12,
+        "popular": 8
+      },
+      {
+        "goodId": 45,
+        "category": [7],
+        "imageUrl": "https://cdn21vek.by/img/galleries/6789/822/preview/galaxyzfold3512gbsmf926bzkgser_samsung_611637a8e99ec.jpeg",
+        "name": "Смартфон Samsung Galaxy Z Fold3 512GB / SM-F926BZKGSER",
+        "rate": 5,
+        "price": 300,
+        "amount": 12,
+        "popular": 8
+      },
+      {
+        "goodId": 46,
+        "category": [7],
+        "imageUrl": "https://cdn21vek.by/img/galleries/6789/822/preview/galaxyzfold3512gbsmf926bzkgser_samsung_611637a8e99ec.jpeg",
+        "name": "Смартфон Samsung Galaxy Z Fold3 512GB / SM-F926BZKGSER",
+        "rate": 5,
+        "price": 300,
+        "amount": 12,
+        "popular": 8
+      },
+      {
+        "goodId": 47,
+        "category": [7],
+        "imageUrl": "https://cdn21vek.by/img/galleries/6789/822/preview/galaxyzfold3512gbsmf926bzkgser_samsung_611637a8e99ec.jpeg",
+        "name": "Смартфон Samsung Galaxy Z Fold3 512GB / SM-F926BZKGSER",
+        "rate": 5,
+        "price": 300,
+        "amount": 12,
+        "popular": 8
+      },
+      {
+        "goodId": 48,
+        "category": [7],
+        "imageUrl": "https://cdn21vek.by/img/galleries/6789/822/preview/galaxyzfold3512gbsmf926bzkgser_samsung_611637a8e99ec.jpeg",
+        "name": "Смартфон Samsung Galaxy Z Fold3 512GB / SM-F926BZKGSER",
+        "rate": 5,
+        "price": 300,
+        "amount": 12,
+        "popular": 8
+      },
+      {
+        "goodId": 49,
+        "category": [7],
+        "imageUrl": "https://cdn21vek.by/img/galleries/6789/822/preview/galaxyzfold3512gbsmf926bzkgser_samsung_611637a8e99ec.jpeg",
+        "name": "Смартфон Samsung Galaxy Z Fold3 512GB / SM-F926BZKGSER",
+        "rate": 5,
+        "price": 300,
+        "amount": 12,
+        "popular": 8
+      },
+      {
+        "goodId": 50,
+        "category": [7],
+        "imageUrl": "https://cdn21vek.by/img/galleries/6789/822/preview/galaxyzfold3512gbsmf926bzkgser_samsung_611637a8e99ec.jpeg",
+        "name": "Смартфон Samsung Galaxy Z Fold3 512GB / SM-F926BZKGSER",
+        "rate": 5,
+        "price": 300,
+        "amount": 12,
+        "popular": 8
+      },
+      {
+        "goodId": 51,
+        "category": [7],
+        "imageUrl": "https://cdn21vek.by/img/galleries/6789/822/preview/galaxyzfold3512gbsmf926bzkgser_samsung_611637a8e99ec.jpeg",
+        "name": "Смартфон Samsung Galaxy Z Fold3 512GB / SM-F926BZKGSER",
+        "rate": 5,
+        "price": 300,
+        "amount": 12,
+        "popular": 8
+      },
+      {
+        "goodId": 52,
+        "category": [7],
+        "imageUrl": "https://cdn21vek.by/img/galleries/6789/822/preview/galaxyzfold3512gbsmf926bzkgser_samsung_611637a8e99ec.jpeg",
+        "name": "Смартфон Samsung Galaxy Z Fold3 512GB / SM-F926BZKGSER",
+        "rate": 5,
+        "price": 300,
+        "amount": 12,
+        "popular": 8
+      },
+      {
+        "goodId": 53,
+        "category": [7],
+        "imageUrl": "https://cdn21vek.by/img/galleries/6789/822/preview/galaxyzfold3512gbsmf926bzkgser_samsung_611637a8e99ec.jpeg",
+        "name": "Смартфон Samsung Galaxy Z Fold3 512GB / SM-F926BZKGSER",
+        "rate": 5,
+        "price": 300,
+        "amount": 12,
+        "popular": 8
+      },
+      {
+        "goodId": 54,
+        "category": [7],
+        "imageUrl": "https://cdn21vek.by/img/galleries/6789/822/preview/galaxyzfold3512gbsmf926bzkgser_samsung_611637a8e99ec.jpeg",
+        "name": "Смартфон Samsung Galaxy Z Fold3 512GB / SM-F926BZKGSER",
+        "rate": 5,
+        "price": 300,
+        "amount": 12,
+        "popular": 8
+      },
+      {
+        "goodId": 55,
+        "category": [7],
+        "imageUrl": "https://cdn21vek.by/img/galleries/6789/822/preview/galaxyzfold3512gbsmf926bzkgser_samsung_611637a8e99ec.jpeg",
+        "name": "Смартфон Samsung Galaxy Z Fold3 512GB / SM-F926BZKGSER",
+        "rate": 5,
+        "price": 300,
+        "amount": 12,
+        "popular": 8
+      },
+      {
+        "goodId": 56,
+        "category": [7],
+        "imageUrl": "https://cdn21vek.by/img/galleries/6789/822/preview/galaxyzfold3512gbsmf926bzkgser_samsung_611637a8e99ec.jpeg",
+        "name": "Смартфон Samsung Galaxy Z Fold3 512GB / SM-F926BZKGSER",
+        "rate": 5,
+        "price": 300,
+        "amount": 12,
+        "popular": 8
+      },
+      {
+        "goodId": 57,
+        "category": [7],
+        "imageUrl": "https://cdn21vek.by/img/galleries/6789/822/preview/galaxyzfold3512gbsmf926bzkgser_samsung_611637a8e99ec.jpeg",
+        "name": "Смартфон Samsung Galaxy Z Fold3 512GB / SM-F926BZKGSER",
+        "rate": 5,
+        "price": 300,
+        "amount": 12,
+        "popular": 8
+      },
+      {
+        "goodId": 58,
+        "category": [7],
+        "imageUrl": "https://cdn21vek.by/img/galleries/6789/822/preview/galaxyzfold3512gbsmf926bzkgser_samsung_611637a8e99ec.jpeg",
+        "name": "Смартфон Samsung Galaxy Z Fold3 512GB / SM-F926BZKGSER",
+        "rate": 5,
+        "price": 300,
+        "amount": 12,
+        "popular": 8
+      },
+      {
+        "goodId": 59,
+        "category": [7],
+        "imageUrl": "https://cdn21vek.by/img/galleries/6789/822/preview/galaxyzfold3512gbsmf926bzkgser_samsung_611637a8e99ec.jpeg",
+        "name": "Смартфон Samsung Galaxy Z Fold3 512GB / SM-F926BZKGSER",
+        "rate": 5,
+        "price": 300,
+        "amount": 12,
+        "popular": 8
+      },
+      {
+        "goodId": 60,
+        "category": [8],
+        "imageUrl": "https://cdn21vek.by/img/galleries/6064/468/preview/quatix6sapphire0100215895_garmin_5f1571c5b918e.jpeg",
+        "name": "Умные часы Garmin Quatix 6 Sapphire / 010-02158-95",
+        "rate": 5,
+        "price": 300,
+        "amount": 12,
+        "popular": 8
+      },
+      {
+        "goodId": 61,
+        "category": [8],
+        "imageUrl": "https://cdn21vek.by/img/galleries/6064/468/preview/quatix6sapphire0100215895_garmin_5f1571c5b918e.jpeg",
+        "name": "Умные часы Garmin Quatix 6 Sapphire / 010-02158-95",
+        "rate": 5,
+        "price": 300,
+        "amount": 12,
+        "popular": 8
+      },
+      {
+        "goodId": 62,
+        "category": [8],
+        "imageUrl": "https://cdn21vek.by/img/galleries/6064/468/preview/quatix6sapphire0100215895_garmin_5f1571c5b918e.jpeg",
+        "name": "Умные часы Garmin Quatix 6 Sapphire / 010-02158-95",
+        "rate": 5,
+        "price": 300,
+        "amount": 12,
+        "popular": 8
+      },
+      {
+        "goodId": 63,
+        "category": [8],
+        "imageUrl": "https://cdn21vek.by/img/galleries/6064/468/preview/quatix6sapphire0100215895_garmin_5f1571c5b918e.jpeg",
+        "name": "Умные часы Garmin Quatix 6 Sapphire / 010-02158-95",
+        "rate": 5,
+        "price": 300,
+        "amount": 12,
+        "popular": 8
+      },
+      {
+        "goodId": 64,
+        "category": [8],
+        "imageUrl": "https://cdn21vek.by/img/galleries/6064/468/preview/quatix6sapphire0100215895_garmin_5f1571c5b918e.jpeg",
+        "name": "Умные часы Garmin Quatix 6 Sapphire / 010-02158-95",
+        "rate": 5,
+        "price": 300,
+        "amount": 12,
+        "popular": 8
+      },
+      {
+        "goodId": 65,
+        "category": [8],
+        "imageUrl": "https://cdn21vek.by/img/galleries/6064/468/preview/quatix6sapphire0100215895_garmin_5f1571c5b918e.jpeg",
+        "name": "Умные часы Garmin Quatix 6 Sapphire / 010-02158-95",
+        "rate": 5,
+        "price": 300,
+        "amount": 12,
+        "popular": 8
+      },
+      {
+        "goodId": 66,
+        "category": [8],
+        "imageUrl": "https://cdn21vek.by/img/galleries/6064/468/preview/quatix6sapphire0100215895_garmin_5f1571c5b918e.jpeg",
+        "name": "Умные часы Garmin Quatix 6 Sapphire / 010-02158-95",
+        "rate": 5,
+        "price": 300,
+        "amount": 12,
+        "popular": 8
+      },
+      {
+        "goodId": 67,
+        "category": [8],
+        "imageUrl": "https://cdn21vek.by/img/galleries/6064/468/preview/quatix6sapphire0100215895_garmin_5f1571c5b918e.jpeg",
+        "name": "Умные часы Garmin Quatix 6 Sapphire / 010-02158-95",
+        "rate": 5,
+        "price": 300,
+        "amount": 12,
+        "popular": 8
+      },
+      {
+        "goodId": 68,
+        "category": [8],
+        "imageUrl": "https://cdn21vek.by/img/galleries/6064/468/preview/quatix6sapphire0100215895_garmin_5f1571c5b918e.jpeg",
+        "name": "Умные часы Garmin Quatix 6 Sapphire / 010-02158-95",
+        "rate": 5,
+        "price": 300,
+        "amount": 12,
+        "popular": 8
+      },
+      {
+        "goodId": 69,
+        "category": [8],
+        "imageUrl": "https://cdn21vek.by/img/galleries/6064/468/preview/quatix6sapphire0100215895_garmin_5f1571c5b918e.jpeg",
+        "name": "Умные часы Garmin Quatix 6 Sapphire / 010-02158-95",
+        "rate": 5,
+        "price": 300,
+        "amount": 12,
+        "popular": 8
+      },
+      {
+        "goodId": 70,
+        "category": [8],
+        "imageUrl": "https://cdn21vek.by/img/galleries/6064/468/preview/quatix6sapphire0100215895_garmin_5f1571c5b918e.jpeg",
+        "name": "Умные часы Garmin Quatix 6 Sapphire / 010-02158-95",
+        "rate": 5,
+        "price": 300,
+        "amount": 12,
+        "popular": 8
+      },
+      {
+        "goodId": 71,
+        "category": [8],
+        "imageUrl": "https://cdn21vek.by/img/galleries/6064/468/preview/quatix6sapphire0100215895_garmin_5f1571c5b918e.jpeg",
+        "name": "Умные часы Garmin Quatix 6 Sapphire / 010-02158-95",
+        "rate": 5,
+        "price": 300,
+        "amount": 12,
+        "popular": 8
+      },
+      {
+        "goodId": 72,
+        "category": [8],
+        "imageUrl": "https://cdn21vek.by/img/galleries/6064/468/preview/quatix6sapphire0100215895_garmin_5f1571c5b918e.jpeg",
+        "name": "Умные часы Garmin Quatix 6 Sapphire / 010-02158-95",
+        "rate": 5,
+        "price": 300,
+        "amount": 12,
+        "popular": 8
+      },
+      {
+        "goodId": 73,
+        "category": [8],
+        "imageUrl": "https://cdn21vek.by/img/galleries/6064/468/preview/quatix6sapphire0100215895_garmin_5f1571c5b918e.jpeg",
+        "name": "Умные часы Garmin Quatix 6 Sapphire / 010-02158-95",
+        "rate": 5,
+        "price": 300,
+        "amount": 12,
+        "popular": 8
+      },
+      {
+        "goodId": 74,
+        "category": [8],
+        "imageUrl": "https://cdn21vek.by/img/galleries/6064/468/preview/quatix6sapphire0100215895_garmin_5f1571c5b918e.jpeg",
+        "name": "Умные часы Garmin Quatix 6 Sapphire / 010-02158-95",
+        "rate": 5,
+        "price": 300,
+        "amount": 12,
+        "popular": 8
+      },
+      {
+        "goodId": 75,
+        "category": [8],
+        "imageUrl": "https://cdn21vek.by/img/galleries/6064/468/preview/quatix6sapphire0100215895_garmin_5f1571c5b918e.jpeg",
+        "name": "Умные часы Garmin Quatix 6 Sapphire / 010-02158-95",
+        "rate": 5,
+        "price": 300,
+        "amount": 12,
+        "popular": 8
+      },
+      {
+        "goodId": 76,
+        "category": [8],
+        "imageUrl": "https://cdn21vek.by/img/galleries/6064/468/preview/quatix6sapphire0100215895_garmin_5f1571c5b918e.jpeg",
+        "name": "Умные часы Garmin Quatix 6 Sapphire / 010-02158-95",
+        "rate": 5,
+        "price": 300,
+        "amount": 12,
+        "popular": 8
+      },
+      {
+        "goodId": 77,
+        "category": [8],
+        "imageUrl": "https://cdn21vek.by/img/galleries/6064/468/preview/quatix6sapphire0100215895_garmin_5f1571c5b918e.jpeg",
+        "name": "Умные часы Garmin Quatix 6 Sapphire / 010-02158-95",
+        "rate": 5,
+        "price": 300,
+        "amount": 12,
+        "popular": 8
+      },
+      {
+        "goodId": 78,
+        "category": [8],
+        "imageUrl": "https://cdn21vek.by/img/galleries/6064/468/preview/quatix6sapphire0100215895_garmin_5f1571c5b918e.jpeg",
+        "name": "Умные часы Garmin Quatix 6 Sapphire / 010-02158-95",
+        "rate": 5,
+        "price": 300,
+        "amount": 12,
+        "popular": 8
+      },
+      {
+        "goodId": 79,
+        "category": [8],
+        "imageUrl": "https://cdn21vek.by/img/galleries/6064/468/preview/quatix6sapphire0100215895_garmin_5f1571c5b918e.jpeg",
+        "name": "Умные часы Garmin Quatix 6 Sapphire / 010-02158-95",
+        "rate": 5,
+        "price": 300,
+        "amount": 12,
+        "popular": 8
+      }
+    ]
+  }
+}

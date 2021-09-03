@@ -1,1 +1,17 @@
-<p>categories works!</p>
+<div class="categories">
+  <div class="categories__item">
+    <div
+      class="categories__category active"
+      *ngFor="let category of databaseService.categories$ | async"
+    >
+      <button (mouseenter)="currentSubCategory(category.id)">
+        {{ category.name }}
+      </button>
+    </div>
+  </div>
+  <div class="categories__item">
+    <app-subcategories
+      [subCategories]="databaseService.subCategory$ | async"
+    ></app-subcategories>
+  </div>
+</div>

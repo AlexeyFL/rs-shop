@@ -1,10 +1,4 @@
-import {
-  Component,
-  OnInit,
-  Input,
-  ChangeDetectionStrategy,
-  OnChanges,
-} from '@angular/core';
+import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 import { SubCategory } from '../../models/response-models';
 
 @Component({
@@ -13,14 +7,6 @@ import { SubCategory } from '../../models/response-models';
   styleUrls: ['./subcategories.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class SubcategoriesComponent implements  OnChanges {
+export class SubcategoriesComponent {
   @Input() subCategories!: SubCategory[] | null;
-
-  // ngOnInit(): void {
-  //   console.log('subCategories', this.subCategories);
-  // }
-
-  ngOnChanges() {
-    console.log('subCategories', this.subCategories);
-  }
 }

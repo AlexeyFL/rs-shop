@@ -2,9 +2,13 @@
   <div class="categories__item">
     <div
       class="categories__category active"
-      *ngFor="let category of databaseService.categories$ | async"
+      *ngFor="
+        let category of databaseService.categories$ | async;
+        let i = index
+      "
     >
       <button (mouseenter)="currentSubCategory(category.id)">
+        <i class="{{ categoryIcons[i] }}"></i>
         {{ category.name }}
       </button>
     </div>

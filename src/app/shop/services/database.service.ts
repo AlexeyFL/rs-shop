@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { map, filter } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { categoriesUrl } from '../../constants';
 import { MainCategory, SubCategory } from '../models/response-models';

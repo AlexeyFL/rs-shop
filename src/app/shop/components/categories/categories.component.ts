@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { map } from 'rxjs/operators';
 import { MainCategory, SubCategory } from '../../models/response-models';
 import { DatabaseService } from '../../services/database.service';
+import { icons } from '../../../constants';
 
 @Component({
   selector: 'app-categories',
@@ -9,6 +9,8 @@ import { DatabaseService } from '../../services/database.service';
   styleUrls: ['./categories.component.scss'],
 })
 export class CategoriesComponent implements OnInit {
+  categoryIcons: string[] = icons;
+
   currentSubCategories!: SubCategory[];
 
   categories!: MainCategory[];
@@ -17,7 +19,11 @@ export class CategoriesComponent implements OnInit {
 
   ngOnInit(): void {
     this.databaseService.getCategories();
-    this.databaseService.getSubcategoryById('appliances');
+    this.databaseService.categories$.subscribe((data) => {
+      if (data[0]?.id) {
+        this.databaseService.getSubcategoryById(data[0]?.id);
+      }
+    });
   }
 
   currentSubCategory(id: string) {

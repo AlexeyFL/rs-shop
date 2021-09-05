@@ -4,14 +4,70 @@ export interface SubCategory {
 }
 
 export interface Good {
-  goodId: number;
-  category: number[];
-  imageUrl: string;
+  id: string;
   name: string;
-  rate: number;
+  imageUrls: string[];
+  availableAmount: number;
   price: number;
-  amount: number;
-  popular: number;
+  rating: number;
+  description: number;
+  isInCart: boolean;
+  isFavorite: boolean;
+}
+
+export interface Appliances {
+  refrigerators: Good[];
+  cookers: Good[];
+  dishwashers: Good[];
+  freezers: Good[];
+  microwaves: Good[];
+  teapots: Good[];
+  'washing-machines': Good[];
+  irons: Good[];
+  vacuum: Good[];
+}
+
+export interface Electronics {
+  mobile: Good[];
+  watches: Good[];
+  tablets: Good[];
+  ebooks: Good[];
+  powerbanks: Good[];
+  cameras: Good[];
+  tvs: Good[];
+  headphones: Good[];
+}
+
+export interface ComputersPeripherals {
+  laptops: Good[];
+  computers: Good[];
+  consoles: Good[];
+  hardware: Good[];
+  peripherals: Good[];
+  monitors: Good[];
+}
+
+export interface Furniture {
+  sofas: Good[];
+  armchairs: Good[];
+  cabinets: Good[];
+  chairs: Good[];
+  tables: Good[];
+  beds: Good[];
+}
+
+export interface Hobbies {
+  'music-instruments': Good[];
+  books: Good[];
+  'fun-and-rest': Good[];
+}
+
+export interface Goods {
+  appliances: Appliances;
+  electronics: Electronics;
+  'computers-peripherals': ComputersPeripherals;
+  furniture: Furniture;
+  hobbies: Hobbies;
 }
 
 export interface MainCategory {
@@ -19,6 +75,13 @@ export interface MainCategory {
   name: string;
   subCategories: SubCategory[];
 }
+
+export interface Category {
+  id?: string;
+  name?: string;
+  subCategories?: SubCategory[];
+}
+
 
 export interface Response {
   cities: string[];

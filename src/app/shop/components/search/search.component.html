@@ -1,3 +1,16 @@
 <div class="search">
-  <input class="search__input" type="text" placeholder="Поиск товаров" />
+  <input
+    #search
+    class="search__input"
+    type="text"
+    placeholder="Поиск товаров"
+  />
+  <ul class="search__list">
+    <li *ngFor="let category of dataBaseService.searchedCategories$ | async">
+      <a href="{{ category.id }}">{{ category.name }}</a>
+    </li>
+    <li *ngFor="let good of dataBaseService.goods$ | async">
+      <a href="{{ good.id }}">{{ good.name }}</a>
+    </li>
+  </ul>
 </div>

@@ -1,3 +1,53 @@
 <div class="authorization">
-  <button>Account</button>
+  <button (click)="onShowInfo()" class="btn authorization__btn">
+    <i class="fas fa-sign-in-alt"></i>Account
+  </button>
+  <div [ngClass]="{ active: showInfo }" class="authorization__info">
+    <div class="user">
+      <div class="user__avatar">
+        <i class="far fa-user-circle"></i><br />
+        <span *ngIf="authorized">{{ userName }}</span>
+      </div>
+      <div class="user__item">
+        <button *ngIf="!authorized" (click)="onShowLoginForm()" class="btn">
+          Войти
+        </button>
+        <button *ngIf="authorized" (click)="logout()" class="form__btn btn">
+          Выйти
+        </button>
+      </div>
+      <div class="user__item text--center">
+        <a href="" class="user__link"
+          ><i class="fas fa-shopping-cart"></i>Корзина</a
+        ><span class="user__count">1</span>
+      </div>
+      <div class="user__item">
+        <a href="" class="user__link"><i class="far fa-heart"></i>Избранные</a
+        ><span class="user__count">1</span>
+      </div>
+    </div>
+  </div>
+  <form
+    *ngIf="!authorized"
+    (ngSubmit)="login(authForm)"
+    #authForm="ngForm"
+    class="form authorization__form"
+    [ngClass]="{ active: showLoginForm }"
+  >
+    <span (click)="onCloseLoginForm()" class="close">&times;</span>
+    <h3 class="form__title">Вход</h3>
+    <div id="user-data" ngModelGroup="userData">
+      <div class="form__row">
+        <label for="email">Электронная почта</label>
+        <input ngModel id="email" name="email" type="email" required email />
+      </div>
+      <div class="form__row">
+        <label for="username">Имя</label>
+        <input ngModel id="username" name="username" type="text" required />
+      </div>
+    </div>
+    <div class="form__row">
+      <button [disabled]="!authForm.valid" class="form__btn btn">Войти</button>
+    </div>
+  </form>
 </div>

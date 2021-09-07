@@ -11,6 +11,7 @@ import { SearchComponent } from './components/search/search.component';
 import { AuthModule } from '../auth/auth.module';
 import { CategoriesComponent } from './components/categories/categories.component';
 import { SubcategoriesComponent } from './components/subcategories/subcategories.component';
+import { MenuComponent } from './components/menu/menu.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { SubcategoriesComponent } from './components/subcategories/subcategories
     SearchComponent,
     CategoriesComponent,
     SubcategoriesComponent,
+    MenuComponent,
   ],
   imports: [
     CommonModule,
@@ -34,6 +36,7 @@ import { SubcategoriesComponent } from './components/subcategories/subcategories
     ContactsComponent,
     WorktimeComponent,
     NavigationComponent,
+    MenuComponent,
   ],
 })
 export class ShopModule {}

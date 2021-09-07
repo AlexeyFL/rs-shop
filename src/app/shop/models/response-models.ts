@@ -3,6 +3,11 @@ export interface SubCategory {
   name: string;
 }
 
+export interface User {
+  email: string;
+  username: string;
+}
+
 export interface Good {
   id: string;
   name: string;
@@ -81,7 +86,6 @@ export interface Category {
   name?: string;
   subCategories?: SubCategory[];
 }
-
 
 export interface Response {
   cities: string[];

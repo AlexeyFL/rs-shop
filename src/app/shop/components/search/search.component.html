@@ -10,7 +10,11 @@
       <a href="{{ category.id }}">{{ category.name }}</a>
     </li>
     <li *ngFor="let good of dataBaseService.goods$ | async">
-      <a href="{{ good.id }}">{{ good.name }}</a>
+      <div class="search-good">
+        <a href="{{ good.id }}">{{ good.name }}</a>
+        <hr />
+        <span>{{ good.price }} р.</span>
+      </div>
     </li>
   </ul>
 </div>

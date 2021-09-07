@@ -14,12 +14,10 @@ import { DatabaseService } from '../../services/database.service';
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.scss'],
 })
-export class SearchComponent implements OnInit, AfterViewInit {
+export class SearchComponent implements AfterViewInit {
   @ViewChild('search') search!: ElementRef;
 
   constructor(public dataBaseService: DatabaseService) {}
-
-  ngOnInit(): void {}
 
   ngAfterViewInit() {
     this.searchResults();

@@ -1,0 +1,8 @@
+<div class="tererr" *ngFor="let category of databaseService.category$ | async">
+  <h1>{{ category.name }}</h1>
+
+  <!--  <app-subcategories
+      [subCategories]="databaseService.subCategory$ | async"
+    ></app-subcategories> -->
+</div>
+<app-goods-page [goods]="goods"></app-goods-page>

@@ -14,13 +14,29 @@ import {
   providedIn: 'root',
 })
 export class DatabaseService {
+  currentCategory$!: Observable<string>;
+
+  currentCategory$$ = new Subject<string>();
+
   categories$!: Observable<MainCategory[]>;
 
   categories$$ = new BehaviorSubject<MainCategory[]>([]);
 
+  category$!: Observable<Category[]>;
+
+  category$$ = new BehaviorSubject<Category[]>([]);
+
   subCategory$!: Observable<SubCategory[]>;
 
   subCategory$$ = new BehaviorSubject<SubCategory[]>([]);
+
+  categoryGoods$!: Observable<Good[]>;
+
+  categoryGoods$$ = new BehaviorSubject<Good[]>([]);
+
+  subCategoryGoods$!: Observable<Good[]>;
+
+  subCategoryGoods$$ = new BehaviorSubject<Good[]>([]);
 
   goods$!: Observable<Good[]>;
 
@@ -32,9 +48,17 @@ export class DatabaseService {
 
   constructor(private http: HttpClient) {
     this.categories$ = this.categories$$.asObservable();
+    this.category$ = this.category$$.asObservable();
     this.subCategory$ = this.subCategory$$.asObservable();
     this.goods$ = this.goods$$.asObservable();
     this.searchedCategories$ = this.searchedCategories$$.asObservable();
+    this.currentCategory$ = this.currentCategory$$.asObservable();
+    this.categoryGoods$ = this.categoryGoods$$.asObservable();
+    this.subCategoryGoods$ = this.subCategoryGoods$$.asObservable();
+  }
+
+  getCurrentCategory(categoryId: string) {
+    this.currentCategory$$.next(categoryId);
   }
 
   getCategories() {
@@ -43,6 +67,31 @@ export class DatabaseService {
       .pipe(map((data: MainCategory[]) => data))
       .subscribe((data: MainCategory[]) => {
         this.categories$$.next(data);
+      });
+  }
+
+  getCategoryById(id: string) {
+    return this.http
+      .get<MainCategory[]>(categoriesUrl)
+      .pipe(
+        map((data: MainCategory[]) => {
+          const categories: Category[] = [];
+          data.forEach((category) => {
+            if (category.id === id) {
+              categories.push(category);
+            }
+
+            category.subCategories.forEach((subCategory) => {
+              if (subCategory.id === id) {
+                categories.push(subCategory);
+              }
+            });
+          });
+          return categories;
+        }),
+      )
+      .subscribe((data: Category[]) => {
+        this.category$$.next(data);
       });
   }
 
@@ -100,6 +149,44 @@ export class DatabaseService {
       )
       .subscribe((data: Good[]) => {
         this.goods$$.next(data);
+      });
+  }
+
+  getGoodsByCategory(categoryId: string) {
+    return this.http
+      .get<Good[]>('http://localhost:3004/goods/')
+      .pipe(
+        map((data) => {
+          console.log(data);
+        }),
+      )
+      .subscribe();
+  }
+
+  getGoodsByCategoryId(categoryId: string, start: number, count: number) {
+    return this.http
+      .get<Good[]>(
+        `http://localhost:3004/goods/category/${categoryId}?start=${start}&count=${count}`,
+      )
+      .pipe(map((data) => data))
+      .subscribe((data) => {
+        this.categoryGoods$$.next(data);
+      });
+  }
+
+  getGoodsBySubCategoryId(
+    categoryId: string,
+    subcategoryId: string,
+    start: number,
+    count: number,
+  ) {
+    return this.http
+      .get<Good[]>(
+        `http://localhost:3004/goods/category/${categoryId}/${subcategoryId}?start=${start}&count=${count}`,
+      )
+      .pipe(map((data) => data))
+      .subscribe((data) => {
+        this.subCategoryGoods$$.next(data);
       });
   }
 }

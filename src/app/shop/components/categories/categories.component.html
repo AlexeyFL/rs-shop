@@ -7,14 +7,19 @@
         let i = index
       "
     >
-      <button (mouseenter)="currentSubCategory(category.id)">
+      <a
+        [routerLink]="[category.id]"
+        (click)="getCurrentCategoryId(category.id)"
+        (mouseenter)="currentSubCategory(category.id)"
+      >
         <i class="{{ categoryIcons[i] }}"></i>
         {{ category.name }}
-      </button>
+      </a>
     </div>
   </div>
   <div class="categories__item">
     <app-subcategories
+      [parentCategory]="parentCategory"
       [subCategories]="databaseService.subCategory$ | async"
     ></app-subcategories>
   </div>

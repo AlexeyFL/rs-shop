@@ -1,6 +1,11 @@
 <div class="categories-menu">
   <nav class="menu menu--desktop">
-    <a *ngFor="let category of categories" class="menu__link" href="{{ category.id}}">{{ category.name}}</a>
+    <a
+      *ngFor="let category of categories"
+      class="menu__link"
+      [routerLink]="[category.id]"
+      >{{ category.name }}</a
+    >
   </nav>
   <nav class="menu menu--mobile">mobile</nav>
   <button class="btn menu__btn"><i class="fas fa-bars"></i></button>

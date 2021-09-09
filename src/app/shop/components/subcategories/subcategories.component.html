@@ -1,3 +1,7 @@
 <div *ngFor="let subCategory of subCategories" class="subcategory">
-  <a href="{{ subCategory.id }}">{{ subCategory.name }}</a>
+  <a
+    (click)="onPassParentCategory()"
+    [routerLink]="parentCategory+'/'+subCategory.id"
+    >{{ subCategory.name }}</a
+  >
 </div>

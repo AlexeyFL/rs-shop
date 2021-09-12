@@ -17,7 +17,8 @@ export class SubcategoriesComponent {
 
   constructor(private databaseService: DatabaseService) {}
 
-  onPassParentCategory() {
+  onPassSubCategory(subCategory: string) {
+    this.databaseService.getCurrentSubCategory(subCategory);
     this.databaseService.getCurrentCategory(this.parentCategory);
   }
 }

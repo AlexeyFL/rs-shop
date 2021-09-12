@@ -38,5 +38,6 @@ export class CategoriesComponent implements OnInit {
 
   getCurrentCategoryId(categoryId: string) {
     this.databaseService.getCurrentCategory(categoryId);
+    this.databaseService.getCurrentSubCategory('');
   }
 }

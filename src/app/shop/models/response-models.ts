@@ -18,6 +18,8 @@ export interface Good {
   description: number;
   isInCart: boolean;
   isFavorite: boolean;
+  category: string;
+  subCategory: string;
 }
 
 export interface Appliances {

@@ -14,9 +14,10 @@ import { CategoriesComponent } from './components/categories/categories.componen
 import { SubcategoriesComponent } from './components/subcategories/subcategories.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { CategoryPageComponent } from './components/category-page/category-page.component';
-import { SubcategoryPageComponent } from './components/subcategory-page/subcategory-page.component';
 import { GoodsPageComponent } from './components/goods-page/goods-page.component';
-import { ShopRoutingModule } from './shop-routing.module';
+import { GoodPageComponent } from './components/good-page/good-page.component';
+import { ShortenPipe } from './pipes/shorten.pipe';
+import { SortPipe } from './pipes/sort.pipe';
 
 @NgModule({
   declarations: [
@@ -29,12 +30,14 @@ import { ShopRoutingModule } from './shop-routing.module';
     SubcategoriesComponent,
     MenuComponent,
     CategoryPageComponent,
-    SubcategoryPageComponent,
     GoodsPageComponent,
+    GoodPageComponent,
+    ShortenPipe,
+    SortPipe,
   ],
   imports: [
     CommonModule,
-    ShopRoutingModule,
+    // ShopRoutingModule,
     RouterModule,
     SharedModule,
     FormsModule,

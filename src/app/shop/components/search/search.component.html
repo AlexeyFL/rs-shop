@@ -5,13 +5,13 @@
     type="text"
     placeholder="Поиск товаров"
   />
-  <ul class="search__list">
+  <ul #searchList class="search__list">
     <li *ngFor="let category of dataBaseService.searchedCategories$ | async">
-      <a href="{{ category.id }}">{{ category.name }}</a>
+      <a (click)="clearSearch()" [routerLink]="category.id">{{ category.name }}</a>
     </li>
     <li *ngFor="let good of dataBaseService.goods$ | async">
       <div class="search-good">
-        <a href="{{ good.id }}">{{ good.name }}</a>
+        <a (click)="clearSearch()" [routerLink]="good.subCategory+'/'+good.id">{{ good.name }}</a>
         <hr />
         <span>{{ good.price }} р.</span>
       </div>

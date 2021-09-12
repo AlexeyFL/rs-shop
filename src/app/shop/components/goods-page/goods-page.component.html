@@ -1,6 +1,38 @@
+<div class="sort">
+  <span>Сортировать по:</span>
+  <button (click)="sortBy('price')">Цене</button>
+  <button (click)="sortBy('rating')" >Рейтингу</button>
+</div>
 <div class="goods-cards">
-  Goods page
-  <div *ngFor="let good of goods" class="good-card">
-    {{ good.name }}
+  <div *ngFor="let good of goods | sort: sortByValue:isAsc" class="good-card">
+    <!-- <pre>{{ good | json }}</pre> -->
+    <div class="good-card__image">
+      <img src="{{ good.imageUrls[0] }}" alt="{{ good.name }}" />
+    </div>
+    <a [routerLink]="good.id">{{ good.name | shorten: 20 }}</a>
+    <div class="good-card__price">
+     <strong>{{ (good.price).toFixed(2) }}</strong> р.
+    </div>
+    <div *ngIf="good.availableAmount > 0" class="good-card__available">
+      <i
+        [ngClass]="{
+          red: good.availableAmount < 5,
+          green: good.availableAmount > 20,
+          yellow: good.availableAmount >= 5 && good.availableAmount <= 20
+        }"
+        class="far fa-check-circle"
+      ></i
+      >В наличии
+    </div>
+    <div *ngIf="good.availableAmount === 0" class="good-card__available">
+      Нет на складе
+    </div>
+    <div class="good-card__rating">
+      <i *ngFor="let item of counter(good.rating)" class="fas fa-star"></i>
+    </div>
+    <div class="good-card__rating">
+      <button>В корзину</button>
+      <button>В избранное</button>
+    </div>
   </div>
 </div>

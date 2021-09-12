@@ -9,6 +9,10 @@ import { DatabaseService } from '../../services/database.service';
   styleUrls: ['./goods-page.component.scss'],
 })
 export class GoodsPageComponent implements OnInit, OnDestroy {
+  isAsc: boolean = true;
+
+  sortByValue: string = '';
+
   @Input() goods!: Good[];
 
   categoryUnsubscribe!: Subscription;
@@ -25,5 +29,14 @@ export class GoodsPageComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.categoryUnsubscribe.unsubscribe();
+  }
+
+  counter(i: number) {
+    return new Array(i);
+  }
+
+  sortBy(value: string) {
+    this.sortByValue = value;
+    this.isAsc = !this.isAsc;
   }
 }

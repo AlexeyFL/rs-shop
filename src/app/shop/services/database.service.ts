@@ -16,7 +16,11 @@ import {
 export class DatabaseService {
   currentCategory$!: Observable<string>;
 
-  currentCategory$$ = new Subject<string>();
+  currentCategory$$ = new BehaviorSubject<string>('');
+
+  currentSubCategory$!: Observable<string>;
+
+  currentSubCategory$$ = new BehaviorSubject<string>('');
 
   categories$!: Observable<MainCategory[]>;
 
@@ -38,6 +42,10 @@ export class DatabaseService {
 
   subCategoryGoods$$ = new BehaviorSubject<Good[]>([]);
 
+  good$!: Observable<Good>;
+
+  good$$ = new Subject<Good>();
+
   goods$!: Observable<Good[]>;
 
   goods$$ = new BehaviorSubject<Good[]>([]);
@@ -53,12 +61,18 @@ export class DatabaseService {
     this.goods$ = this.goods$$.asObservable();
     this.searchedCategories$ = this.searchedCategories$$.asObservable();
     this.currentCategory$ = this.currentCategory$$.asObservable();
+    this.currentSubCategory$ = this.currentSubCategory$$.asObservable();
     this.categoryGoods$ = this.categoryGoods$$.asObservable();
     this.subCategoryGoods$ = this.subCategoryGoods$$.asObservable();
+    this.good$ = this.good$$.asObservable();
   }
 
   getCurrentCategory(categoryId: string) {
     this.currentCategory$$.next(categoryId);
+  }
+
+  getCurrentSubCategory(categoryId: string) {
+    this.currentSubCategory$$.next(categoryId);
   }
 
   getCategories() {
@@ -187,6 +201,15 @@ export class DatabaseService {
       .pipe(map((data) => data))
       .subscribe((data) => {
         this.subCategoryGoods$$.next(data);
+      });
+  }
+
+  getGoodById(goodId: string) {
+    return this.http
+      .get<Good>(`http://localhost:3004/goods/item/${goodId}`)
+      .pipe(map((data) => data))
+      .subscribe((data) => {
+        this.good$$.next(data);
       });
   }
 }

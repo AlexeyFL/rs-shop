@@ -1,4 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  OnDestroy,
+  ViewChild,
+  ElementRef,
+} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -10,7 +16,13 @@ import { DatabaseService } from '../../services/database.service';
   templateUrl: './good-page.component.html',
   styleUrls: ['./good-page.component.scss'],
 })
-export class GoodPageComponent implements OnInit {
+export class GoodPageComponent implements OnInit, OnDestroy {
+  @ViewChild('mainImage') mainImage!: ElementRef;
+
+  selectedItem: number = 0;
+
+  currentSrc!: string;
+
   paramsSubscription!: Subscription;
 
   goodSubscription!: Subscription;
@@ -36,6 +48,11 @@ export class GoodPageComponent implements OnInit {
         this.good = data;
       }
     });
+  }
+
+  getCurrentUrl(e: Event, index: number) {
+    this.selectedItem = index;
+    this.mainImage.nativeElement.src = (e.target as HTMLImageElement).src;
   }
 
   ngOnDestroy() {

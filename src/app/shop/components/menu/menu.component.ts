@@ -23,4 +23,8 @@ export class MenuComponent implements OnInit {
         this.categories = data;
       });
   }
+
+  getGoods(categoryId: string) {
+    this.databaseService.getGoodsByCategoryId(categoryId, 0, 10);
+  }
 }

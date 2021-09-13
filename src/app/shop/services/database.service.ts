@@ -7,6 +7,7 @@ import {
   MainCategory,
   SubCategory,
   Good,
+  Goods,
   Category,
 } from '../models/response-models';
 
@@ -166,18 +167,35 @@ export class DatabaseService {
       });
   }
 
-  getGoodsByCategory(categoryId: string) {
+  getGoodsByCategory(categoryId: string | undefined) {
     return this.http
-      .get<Good[]>('http://localhost:3004/goods/')
+      .get<Goods>('http://localhost:3004/goods/')
       .pipe(
-        map((data) => {
-          console.log(data);
+        map((goods: any) => {
+          const categories = Object.keys(goods);
+          const categoryGoods: any = [];
+          categories.forEach((category: string) => {
+            const subCategories = Object.keys(goods[category]);
+            return subCategories.forEach((subcategory: string) => {
+              if (category === categoryId || subcategory === categoryId) {
+                categoryGoods.push(goods[category][subcategory]);
+              }
+            });
+          });
+
+          return categoryGoods.flat();
         }),
       )
-      .subscribe();
+      .subscribe((data) => {
+        this.categoryGoods$$.next(data);
+      });
   }
 
-  getGoodsByCategoryId(categoryId: string, start: number, count: number) {
+  getGoodsByCategoryId(
+    categoryId: string | undefined,
+    start: number,
+    count: number,
+  ) {
     return this.http
       .get<Good[]>(
         `http://localhost:3004/goods/category/${categoryId}?start=${start}&count=${count}`,

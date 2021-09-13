@@ -1,16 +1,7 @@
-import {
-  AfterContentInit,
-  AfterViewInit,
-  Component,
-  DoCheck,
-  ElementRef,
-  OnChanges,
-  OnInit,
-  ViewChild,
-} from '@angular/core';
+import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
-import { fromEvent, Observable } from 'rxjs';
-import { map, debounceTime, distinctUntilChanged } from 'rxjs/operators';
+import { fromEvent } from 'rxjs';
+import { map, debounceTime } from 'rxjs/operators';
 import { DatabaseService } from '../../services/database.service';
 
 @Component({
@@ -24,12 +15,10 @@ export class SearchComponent implements AfterViewInit {
   @ViewChild('searchList') searchList!: ElementRef;
 
   constructor(public dataBaseService: DatabaseService, private router: Router) {
-    console.log('constructor');
   }
 
   ngAfterViewInit() {
     this.searchResults();
-    console.log('ngAfterViewInit');
   }
 
   searchResults() {
@@ -44,16 +33,15 @@ export class SearchComponent implements AfterViewInit {
           return value;
         }),
       )
-      .subscribe((data: string) => {
-        console.log('searchResults', data);
-        // this.dataBaseService.getCategoryByName(data);
-        // this.dataBaseService.getGoodByName(data);
-      });
+      .subscribe();
+  }
+
+  passCategoryId(categoryId: string | undefined) {
+    this.dataBaseService.getGoodsByCategoryId(categoryId, 0, 10);
+    this.dataBaseService.getGoodsByCategory(categoryId);
   }
 
   clearSearch() {
-    /* this.searchList.nativeElement.innerHTML = '';
-    this.search.nativeElement.value = ''; */
     this.search.nativeElement.value = '';
     this.dataBaseService.getCategoryByName('');
     this.dataBaseService.getGoodByName('');

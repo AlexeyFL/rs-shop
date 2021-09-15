@@ -3,6 +3,12 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
+import { StoreModule } from '@ngrx/store';
+
+import { EffectsModule } from '@ngrx/effects';
+import { SwiperModule } from 'swiper/angular';
+import * as fromShopReducer from '../redux/reducers/reducers';
+
 import { UserLocationComponent } from './components/user-location/user-location.component';
 import { SharedModule } from '../shared/shared.module';
 import { ContactsComponent } from './components/contacts/contacts.component';
@@ -18,6 +24,10 @@ import { GoodsPageComponent } from './components/goods-page/goods-page.component
 import { GoodPageComponent } from './components/good-page/good-page.component';
 import { ShortenPipe } from './pipes/shorten.pipe';
 import { SortPipe } from './pipes/sort.pipe';
+import { CartComponent } from './components/cart/cart.component';
+import { ShopEffects } from '../redux/effects/effects';
+import { CarouselComponent } from './components/carousel/carousel.component';
+import { PopularCarouselComponent } from './components/popular-carousel/popular-carousel.component';
 
 @NgModule({
   declarations: [
@@ -34,15 +44,20 @@ import { SortPipe } from './pipes/sort.pipe';
     GoodPageComponent,
     ShortenPipe,
     SortPipe,
+    CartComponent,
+    CarouselComponent,
+    PopularCarouselComponent,
   ],
   imports: [
     CommonModule,
-    // ShopRoutingModule,
     RouterModule,
     SharedModule,
     FormsModule,
     AuthModule,
+    SwiperModule,
     HttpClientModule,
+    StoreModule.forFeature('shopState', fromShopReducer.shopReducer),
+    EffectsModule.forFeature([ShopEffects]),
   ],
   exports: [
     UserLocationComponent,
@@ -51,6 +66,9 @@ import { SortPipe } from './pipes/sort.pipe';
     NavigationComponent,
     MenuComponent,
     GoodsPageComponent,
+    CartComponent,
+    CarouselComponent,
+    PopularCarouselComponent,
   ],
 })
 export class ShopModule {}

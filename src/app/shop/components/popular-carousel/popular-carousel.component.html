@@ -1,0 +1,32 @@
+<div class="popular-carousel">
+  <swiper [config]="config">
+    <ng-template
+      class="popular-carousel__slide"
+      *ngFor="let slide of slides"
+      swiperSlide
+    >
+      <div
+        (click)="goToGood(good.id)"
+        *ngFor="let good of slide"
+        class="popular-carousel__good"
+      >
+        <div class="popular-carousel__good-item">
+          <div class="popular-carousel__good-image">
+            <img src="{{ good.imageUrls[0] }}" alt="{{ good.name }}" />
+          </div>
+        </div>
+        <div class="popular-carousel__good-item">
+          <div class="popular-carousel__good-name">
+            {{ good.name | shorten: 10 }}
+          </div>
+          <div class="popular-carousel__good-rating">
+            <i *ngFor="let item of counter(good.rating)" class="fas fa-star"></i>
+          </div>
+          <div class="popular-carousel__good-price">
+            {{ good.price.toFixed(2) }}
+          </div>
+        </div>
+      </div>
+    </ng-template>
+  </swiper>
+</div>

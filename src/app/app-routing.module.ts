@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { MainComponent } from './core/components/main/main.component';
+import { CartComponent } from './shop/components/cart/cart.component';
 import { CategoriesComponent } from './shop/components/categories/categories.component';
 import { CategoryPageComponent } from './shop/components/category-page/category-page.component';
 import { GoodPageComponent } from './shop/components/good-page/good-page.component';
@@ -9,6 +10,10 @@ const routes: Routes = [
   {
     path: '',
     component: MainComponent,
+  },
+  {
+    path: 'cart',
+    component: CartComponent,
   },
   {
     path: 'categories/:categoryId',

@@ -1,6 +1,7 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { Good } from '../../models/response-models';
+import { CartService } from '../../services/cart.service';
 import { DatabaseService } from '../../services/database.service';
 
 @Component({
@@ -17,18 +18,16 @@ export class GoodsPageComponent implements OnInit, OnDestroy {
 
   categoryUnsubscribe!: Subscription;
 
-  constructor(private databaseService: DatabaseService) {}
+  goodUnsubscribe!: Subscription;
+
+  constructor(
+    private databaseService: DatabaseService,
+    private cartService: CartService,
+  ) {}
 
   ngOnInit() {
-    this.categoryUnsubscribe = this.databaseService.currentCategory$.subscribe(
-      (data) => {
-        console.log('app-goods-page', data);
-      },
-    );
-  }
-
-  ngOnDestroy() {
-    this.categoryUnsubscribe.unsubscribe();
+    this.categoryUnsubscribe =
+      this.databaseService.currentCategory$.subscribe();
   }
 
   counter(i: number) {
@@ -38,5 +37,17 @@ export class GoodsPageComponent implements OnInit, OnDestroy {
   sortBy(value: string) {
     this.sortByValue = value;
     this.isAsc = !this.isAsc;
+  }
+
+  addToCart(good: string) {
+    this.cartService.cart.push(good);
+
+    this.databaseService.getAllGoods(3);
+
+    this.cartService.addToCart(this.cartService.cart);
+  }
+
+  ngOnDestroy() {
+    this.categoryUnsubscribe.unsubscribe();
   }
 }

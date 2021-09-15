@@ -3,7 +3,7 @@
     <a routerLink="/">logo</a>
   </div>
   <div class="navigation__item">
-    <button (click)="showCategories()" class="btn">Categories</button>
+    <button (click)="showCategories()" class="btn">Категории</button>
   </div>
   <div class="navigation__item">
     <app-search></app-search>
@@ -12,6 +12,7 @@
     <app-auth></app-auth>
   </div>
   <div class="navigation__item">
-    <button>Cart</button>
+    <a [routerLink]="['cart']">Корзина</a>
+    <span *ngIf="cartService.cart.length > 0">{{ cartService.cart.length }}</span>
   </div>
 </div>

@@ -51,6 +51,10 @@ export class DatabaseService {
 
   goods$$ = new BehaviorSubject<Good[]>([]);
 
+  allGoods$!: Observable<Goods>;
+
+  allGoods$$ = new Subject<Goods>();
+
   searchedCategories$!: Observable<Category[]>;
 
   searchedCategories$$ = new BehaviorSubject<Category[]>([]);
@@ -66,6 +70,7 @@ export class DatabaseService {
     this.categoryGoods$ = this.categoryGoods$$.asObservable();
     this.subCategoryGoods$ = this.subCategoryGoods$$.asObservable();
     this.good$ = this.good$$.asObservable();
+    this.allGoods$ = this.allGoods$$.asObservable();
   }
 
   getCurrentCategory(categoryId: string) {
@@ -229,5 +234,33 @@ export class DatabaseService {
       .subscribe((data) => {
         this.good$$.next(data);
       });
+  }
+
+  /*   getAllGoods(amount: number) {
+    return this.http.get<Goods>('http://localhost:3004/goods/').pipe(
+      map((goods: any) => {
+        const categories = Object.keys(goods);
+        const allGoods: any = [];
+        categories.forEach((category: string) => {
+          const subCategories = Object.keys(goods[category]);
+          subCategories.forEach((subcategory: string, index: number) => {
+            if (amount < index) {
+              allGoods.push(goods[category][subcategory]);
+            }
+          });
+        });
+
+        return allGoods.flat();
+      }),
+    );
+  } */
+
+  getAllGoods(amount: number) {
+    return this.http.get<Goods>('http://localhost:3004/goods/').pipe(
+      map((goods: Goods) => {
+        console.log(goods);
+        return goods;
+      }),
+    );
   }
 }

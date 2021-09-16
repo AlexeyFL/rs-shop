@@ -2,9 +2,9 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { MainComponent } from './core/components/main/main.component';
 import { CartComponent } from './shop/components/cart/cart.component';
-import { CategoriesComponent } from './shop/components/categories/categories.component';
-import { CategoryPageComponent } from './shop/components/category-page/category-page.component';
 import { GoodPageComponent } from './shop/components/good-page/good-page.component';
+import { NewCategoryPageComponent } from './shop/components/new-category-page/new-category-page.component';
+import { SubcategoryPageComponent } from './shop/components/subcategory-page/subcategory-page.component';
 
 const routes: Routes = [
   {
@@ -15,7 +15,7 @@ const routes: Routes = [
     path: 'cart',
     component: CartComponent,
   },
-  {
+ /*  {
     path: 'categories/:categoryId',
     redirectTo: ':categoryId',
   },
@@ -29,6 +29,18 @@ const routes: Routes = [
   },
   {
     path: ':categoryId/:goodId',
+    component: GoodPageComponent,
+  }, */
+  {
+    path: ':categoryId',
+    component: NewCategoryPageComponent,
+  },
+  {
+    path: ':categoryId/:subCategoryId',
+    component: SubcategoryPageComponent,
+  },
+  {
+    path: ':categoryId/:subCategoryId/:goodId',
     component: GoodPageComponent,
   },
 

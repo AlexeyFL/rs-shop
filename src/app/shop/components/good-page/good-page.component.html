@@ -1,9 +1,18 @@
 <div *ngIf="good" class="breadcrumbs">
-  <span>{{ good.category }} /</span><span>{{ good.subCategory }}</span>
+  <span
+    (click)="navigateTo(breadcrumbsCategory)"
+    class="breadcrumbs__item breadcrumbs__item--navigate"
+    >{{ breadcrumbsCategory.name  }}</span
+  >
+  <span
+    (click)="navigateTo(breadcrumbsSubCategory)"
+    class="breadcrumbs__item breadcrumbs__item--navigate"
+    > / {{ breadcrumbsSubCategory.name }}</span
+  >
+  <span class="breadcrumbs__item"> / {{ good.name }}</span>
 </div>
 <div *ngIf="good" class="good-card">
   <i *ngIf="good.rating > 2" class="fab fa-hotjar good-card__icon"></i>
-  <pre>{{ good | json }}</pre>
   <h3 class="good-card__heading">{{ good.name }}</h3>
   <div class="slider">
     <div class="slider__thumbs">

@@ -7,11 +7,24 @@
   />
   <ul #searchList class="search__list">
     <li *ngFor="let category of dataBaseService.searchedCategories$ | async">
-      <a (click)="clearSearch(); passCategoryId(category.id)" [routerLink]="category.id">{{ category.name }}</a>
+      <span
+        (click)="
+          clearSearch(); passCategoryId(category.categoryId); navigateTo(category)
+        "
+        >{{
+          category.subcategoryId
+            ? category.subcategoryName
+            : category.categoryName
+        }}</span
+      >
     </li>
     <li *ngFor="let good of dataBaseService.goods$ | async">
       <div class="search-good">
-        <a (click)="clearSearch()" [routerLink]="good.subCategory+'/'+good.id">{{ good.name }}</a>
+        <a
+          (click)="clearSearch()"
+          [routerLink]="[good.category, good.subCategory, good.id]"
+          >{{ good.name }}</a
+        >
         <hr />
         <span>{{ good.price }} р.</span>
       </div>

@@ -1,4 +1,4 @@
-import { Goods } from '../shop/models/response-models';
+import { Goods, Good } from '../shop/models/response-models';
 
 export interface AppState {
   shopState: ShopState;
@@ -9,6 +9,7 @@ export interface ShopState {
   loading?: boolean;
   loaded?: boolean;
   error?: Error;
+  cart?: Good[]
 }
 
 export const initialState: ShopState = {

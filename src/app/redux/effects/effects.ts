@@ -4,6 +4,7 @@ import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { Observable, of } from 'rxjs';
 import { DatabaseService } from 'src/app/shop/services/database.service';
 import { catchError, switchMap, map } from 'rxjs/operators';
+import { CartService } from '../../shop/services/cart.service';
 import { Goods } from '../../shop/models/response-models';
 import {
   getGoods,
@@ -16,6 +17,7 @@ export class ShopEffects {
   constructor(
     private actions: Actions,
     private databaseService: DatabaseService,
+    private cartService: CartService,
   ) {}
 
   getGoods: Observable<Action> = createEffect(() =>

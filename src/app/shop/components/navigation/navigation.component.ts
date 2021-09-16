@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 import { CartService } from '../../services/cart.service';
+import { CategoryService } from '../../services/category.service';
 
 @Component({
   selector: 'app-navigation',
@@ -8,9 +10,20 @@ import { CartService } from '../../services/cart.service';
   styleUrls: ['./navigation.component.scss'],
 })
 export class NavigationComponent {
-  constructor(private router: Router, public cartService: CartService) {}
+  showCategoriesPopup!: boolean;
+
+  constructor(
+    private router: Router,
+    public cartService: CartService,
+    private categoryService: CategoryService,
+  ) {}
 
   showCategories() {
     this.router.navigate(['categories']);
+  }
+
+  showHideCategoriesPopup() {
+    this.showCategoriesPopup = !this.showCategoriesPopup;
+    this.categoryService.showHideCategoryPopup(this.showCategoriesPopup);
   }
 }

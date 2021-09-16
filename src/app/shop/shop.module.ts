@@ -16,10 +16,7 @@ import { WorktimeComponent } from './components/worktime/worktime.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { SearchComponent } from './components/search/search.component';
 import { AuthModule } from '../auth/auth.module';
-import { CategoriesComponent } from './components/categories/categories.component';
-import { SubcategoriesComponent } from './components/subcategories/subcategories.component';
 import { MenuComponent } from './components/menu/menu.component';
-import { CategoryPageComponent } from './components/category-page/category-page.component';
 import { GoodsPageComponent } from './components/goods-page/goods-page.component';
 import { GoodPageComponent } from './components/good-page/good-page.component';
 import { ShortenPipe } from './pipes/shorten.pipe';
@@ -28,6 +25,10 @@ import { CartComponent } from './components/cart/cart.component';
 import { ShopEffects } from '../redux/effects/effects';
 import { CarouselComponent } from './components/carousel/carousel.component';
 import { PopularCarouselComponent } from './components/popular-carousel/popular-carousel.component';
+import { FooterContactsComponent } from './components/footer-contacts/footer-contacts.component';
+import { SocialComponent } from './components/social/social.component';
+import { NewCategoryPageComponent } from './components/new-category-page/new-category-page.component';
+import { SubcategoryPageComponent } from './components/subcategory-page/subcategory-page.component';
 
 @NgModule({
   declarations: [
@@ -36,10 +37,7 @@ import { PopularCarouselComponent } from './components/popular-carousel/popular-
     WorktimeComponent,
     NavigationComponent,
     SearchComponent,
-    CategoriesComponent,
-    SubcategoriesComponent,
     MenuComponent,
-    CategoryPageComponent,
     GoodsPageComponent,
     GoodPageComponent,
     ShortenPipe,
@@ -47,6 +45,10 @@ import { PopularCarouselComponent } from './components/popular-carousel/popular-
     CartComponent,
     CarouselComponent,
     PopularCarouselComponent,
+    FooterContactsComponent,
+    SocialComponent,
+    NewCategoryPageComponent,
+    SubcategoryPageComponent,
   ],
   imports: [
     CommonModule,
@@ -69,6 +71,10 @@ import { PopularCarouselComponent } from './components/popular-carousel/popular-
     CartComponent,
     CarouselComponent,
     PopularCarouselComponent,
+    FooterContactsComponent,
+    SocialComponent,
+    NewCategoryPageComponent,
+    SubcategoryPageComponent
   ],
 })
 export class ShopModule {}

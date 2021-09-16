@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { MainCategory } from '../../models/response-models';
 import { DatabaseService } from '../../services/database.service';
+import { CategoryService } from '../../services/category.service';
 
 @Component({
   selector: 'app-menu',
@@ -11,7 +12,10 @@ import { DatabaseService } from '../../services/database.service';
 export class MenuComponent implements OnInit {
   categories: MainCategory[];
 
-  constructor(private databaseService: DatabaseService) {
+  constructor(
+    private databaseService: DatabaseService,
+    public categoryService: CategoryService,
+  ) {
     this.categories = [];
   }
 
@@ -26,5 +30,9 @@ export class MenuComponent implements OnInit {
 
   getGoods(categoryId: string) {
     this.databaseService.getGoodsByCategoryId(categoryId, 0, 10);
+  }
+
+  onClosePopup() {
+    this.categoryService.showHideCategoryPopup(false);
   }
 }

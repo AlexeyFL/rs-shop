@@ -20,6 +20,23 @@ const reducer = createReducer(
     loading: false,
     loaded: false,
   })),
+
+  on(GoodsActions.getGoodById, (state) => ({
+    ...state,
+    isInCart: true,
+  })),
+  on(GoodsActions.getGoodByIdSuccesful, (state, { good }) => ({
+    ...state,
+    good,
+    loading: false,
+    loaded: true,
+  })),
+  on(GoodsActions.getGoodByIdFailed , (state, { error }) => ({
+    ...state,
+    error,
+    loading: false,
+    loaded: false,
+  })),
 );
 
 export function shopReducer(state: ShopState, action: Action) {

@@ -2,6 +2,7 @@ import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { Good } from '../../models/response-models';
 import { CartService } from '../../services/cart.service';
+import { CategoryService } from '../../services/category.service';
 import { DatabaseService } from '../../services/database.service';
 
 @Component({
@@ -14,7 +15,7 @@ export class GoodsPageComponent implements OnInit, OnDestroy {
 
   sortByValue: string = '';
 
-  @Input() goods!: Good[];
+  @Input() goods!: Good[] | null;
 
   categoryUnsubscribe!: Subscription;
 
@@ -23,6 +24,7 @@ export class GoodsPageComponent implements OnInit, OnDestroy {
   constructor(
     private databaseService: DatabaseService,
     private cartService: CartService,
+    private categoryService: CategoryService,
   ) {}
 
   ngOnInit() {
@@ -39,12 +41,16 @@ export class GoodsPageComponent implements OnInit, OnDestroy {
     this.isAsc = !this.isAsc;
   }
 
-  addToCart(good: string) {
-    this.cartService.cart.push(good);
+  addToCart(good: Good) {
+    // this.cartService.cart.push(good);
 
-    this.databaseService.getAllGoods(3);
+    // this.databaseService.getAllGoods(3);
 
-    this.cartService.addToCart(this.cartService.cart);
+    this.cartService.addToCart(good);
+  }
+
+  addToCartById(goodId: string) {
+    this.cartService.addToCartById(goodId);
   }
 
   ngOnDestroy() {

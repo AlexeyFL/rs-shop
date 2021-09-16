@@ -7,7 +7,7 @@ import SwiperCore, {
 } from 'swiper';
 import { Router } from '@angular/router';
 import { DatabaseService } from '../../services/database.service';
-import { Good } from '../../models/response-models';
+import { Good, GoodByCategoryId } from '../../models/response-models';
 
 SwiperCore.use([Navigation, Pagination, Autoplay]);
 
@@ -17,9 +17,11 @@ SwiperCore.use([Navigation, Pagination, Autoplay]);
   styleUrls: ['./carousel.component.scss'],
 })
 export class CarouselComponent implements OnInit {
-  slides: Good[] = [];
+  slides: GoodByCategoryId[] = [];
 
-  carouselCategory: string = 'appliances';
+  carouselCategory: string = 'tablets';
+
+  carouselSubCategory: string = 'tablets';
 
   config: SwiperOptions = {
     slidesPerView: 1,
@@ -37,10 +39,14 @@ export class CarouselComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.databaseService.getGoodsByCategoryId(this.carouselCategory, 0, 6);
+    // this.databaseService.getGoodsByCategoryId(this.carouselCategory, 0, 6);
+    this.databaseService.getGoodsByCategory(this.carouselCategory);
+    this.databaseService.customCategoryGoods$.subscribe((data) => {
+      console.log(data);
+    });
   }
 
-  goToGood(id: string) {
-    this.router.navigate([`${this.carouselCategory}/${id}`]);
+  goToGood(id: string, categoryId: string, subCategoryId: string) {
+    this.router.navigate([categoryId, subCategoryId, id]);
   }
 }

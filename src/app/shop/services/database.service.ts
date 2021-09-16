@@ -9,6 +9,7 @@ import {
   Good,
   Goods,
   Category,
+  GoodByCategoryId
 } from '../models/response-models';
 
 @Injectable({
@@ -31,6 +32,10 @@ export class DatabaseService {
 
   category$$ = new BehaviorSubject<Category[]>([]);
 
+  subCategoryById$!: Observable<Category[]>;
+
+  subCategoryById$$ = new BehaviorSubject<Category[]>([]);
+
   subCategory$!: Observable<SubCategory[]>;
 
   subCategory$$ = new BehaviorSubject<SubCategory[]>([]);
@@ -38,6 +43,10 @@ export class DatabaseService {
   categoryGoods$!: Observable<Good[]>;
 
   categoryGoods$$ = new BehaviorSubject<Good[]>([]);
+
+  customCategoryGoods$!: Observable<GoodByCategoryId[]>;
+
+  customCategoryGoods$$ = new BehaviorSubject<GoodByCategoryId[]>([]);
 
   subCategoryGoods$!: Observable<Good[]>;
 
@@ -71,6 +80,8 @@ export class DatabaseService {
     this.subCategoryGoods$ = this.subCategoryGoods$$.asObservable();
     this.good$ = this.good$$.asObservable();
     this.allGoods$ = this.allGoods$$.asObservable();
+    this.subCategoryById$ = this.subCategoryById$$.asObservable();
+    this.customCategoryGoods$ = this.customCategoryGoods$$.asObservable();
   }
 
   getCurrentCategory(categoryId: string) {
@@ -115,7 +126,7 @@ export class DatabaseService {
       });
   }
 
-  getSubcategoryById(id: string) {
+  getSubcategoriesByCategoryId(id: string) {
     return this.http
       .get<MainCategory[]>(categoriesUrl)
       .pipe(
@@ -126,6 +137,32 @@ export class DatabaseService {
       )
       .subscribe((data: SubCategory[]) => {
         this.subCategory$$.next(data);
+      });
+  }
+
+  getSubcategoryById(id: string) {
+    return this.http
+      .get<MainCategory[]>(categoriesUrl)
+      .pipe(
+        map((data: MainCategory[]) => {
+          const result: SubCategory[] = [];
+          data.forEach((category) => {
+            if (category.id !== id) {
+              category.subCategories.forEach((subCategory) => {
+                if (subCategory.id === id) {
+                  result.push(subCategory);
+                }
+              });
+            } else {
+              result.push(category);
+            }
+          });
+
+          return result;
+        }),
+      )
+      .subscribe((data: SubCategory[]) => {
+        this.subCategoryById$$.next(data);
       });
   }
 
@@ -140,11 +177,21 @@ export class DatabaseService {
           const categories: Category[] = [];
           data.forEach((category) => {
             if (category.name.toLowerCase().indexOf(name) >= 0) {
-              categories.push(category);
+              categories.push({
+                categoryId: category.id,
+                categoryName: category.name,
+                subCategories: [...category.subCategories],
+              });
             }
+
             category.subCategories.forEach((subCategory) => {
               if (subCategory.name.toLowerCase().indexOf(name) >= 0) {
-                categories.push(subCategory);
+                categories.push({
+                  categoryId: category.id,
+                  categoryName: category.name,
+                  subcategoryId: subCategory.id,
+                  subcategoryName: subCategory.name,
+                });
               }
             });
           });
@@ -179,20 +226,34 @@ export class DatabaseService {
         map((goods: any) => {
           const categories = Object.keys(goods);
           const categoryGoods: any = [];
-          categories.forEach((category: string) => {
+          categories.forEach((category: any) => {
             const subCategories = Object.keys(goods[category]);
-            return subCategories.forEach((subcategory: string) => {
+            return subCategories.forEach((subcategory: any) => {
               if (category === categoryId || subcategory === categoryId) {
-                categoryGoods.push(goods[category][subcategory]);
+                goods[category][subcategory].forEach((item: any) => {
+                  categoryGoods.push({
+                    id: item.id,
+                    availableAmount: item.availableAmount,
+                    description: item.description,
+                    imageUrls: [...item.imageUrls],
+                    name: item.name,
+                    price: item.price,
+                    rating: item.rating,
+                    categoryId: category,
+                    subCategoryId: subcategory,
+                  });
+                });
+                // categoryGoods.push(goods[category][subcategory]);
               }
             });
           });
 
           return categoryGoods.flat();
+          // return categoryGoods;
         }),
       )
       .subscribe((data) => {
-        this.categoryGoods$$.next(data);
+        this.customCategoryGoods$$.next(data);
       });
   }
 
@@ -256,11 +317,8 @@ export class DatabaseService {
   } */
 
   getAllGoods(amount: number) {
-    return this.http.get<Goods>('http://localhost:3004/goods/').pipe(
-      map((goods: Goods) => {
-        console.log(goods);
-        return goods;
-      }),
-    );
+    return this.http
+      .get<Goods>('http://localhost:3004/goods/')
+      .pipe(map((goods: Goods) => goods));
   }
 }

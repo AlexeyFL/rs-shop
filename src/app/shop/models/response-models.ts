@@ -77,6 +77,18 @@ export interface Goods {
   hobbies: Hobbies;
 }
 
+export interface GoodByCategoryId {
+  id: string;
+  availableAmount: number;
+  description: string;
+  imageUrls: string[];
+  name: string;
+  price: number;
+  rating: number;
+  categoryId: string;
+  subCategoryId: string;
+}
+
 export interface MainCategory {
   id: string;
   name: string;
@@ -84,8 +96,12 @@ export interface MainCategory {
 }
 
 export interface Category {
+  categoryId?: string;
+  categoryName?: string;
   id?: string;
   name?: string;
+  subcategoryId?: string;
+  subcategoryName?: string;
   subCategories?: SubCategory[];
 }
 

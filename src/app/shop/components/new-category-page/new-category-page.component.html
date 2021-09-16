@@ -1,0 +1,11 @@
+<div *ngFor="let category of databaseService.category$ | async" class="breadcrumbs">
+  <span class="breadcrumbs__item">{{category.name}}</span>
+</div>
+<div *ngFor="let category of databaseService.category$ | async">
+  <h1>{{ category.name }}</h1>
+</div>
+<ul class="subcategories-list">
+  <li *ngFor="let subCategory of databaseService.subCategory$ | async">
+    <a [routerLink]="[subCategory.id]">{{ subCategory.name }}</a>
+  </li>
+</ul>

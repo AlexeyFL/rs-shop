@@ -4,7 +4,7 @@
       *ngFor="let category of categories"
       class="menu__link"
       [routerLink]="[category.id]"
-      (click)="getGoods(category.id)"
+      (click)="getGoods(category.id); onClosePopup()"
       >{{ category.name }}</a
     >
   </nav>

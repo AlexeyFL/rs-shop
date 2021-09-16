@@ -33,7 +33,7 @@
       <button
         [disabled]="good.isInCart"
         class="btn"
-        (click)="addToCart(good); good.isInCart = true"
+        (click)="addToCart(good);addToCartById(good.id); good.isInCart = true"
       >
         В корзину
       </button>

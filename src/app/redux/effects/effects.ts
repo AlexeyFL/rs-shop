@@ -20,15 +20,15 @@ export class ShopEffects {
     private cartService: CartService,
   ) {}
 
-  getGoods: Observable<Action> = createEffect(() =>
+  /* getGoods: Observable<Action> = createEffect(() =>
     this.actions.pipe(
       ofType(getGoods),
       switchMap((action) =>
-        this.databaseService.getAllGoods(action.amount).pipe(
+        this.databaseService.getAllGoods().pipe(
           map((goods: any) => getGoodsSuccesful({ goods })),
           catchError((error) => of(getGoodsFailed({ error }))),
         ),
       ),
     ),
-  );
+  ); */
 }

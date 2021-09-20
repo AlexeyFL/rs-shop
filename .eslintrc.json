@@ -49,7 +49,9 @@
         "implicit-arrow-linebreak": "off",
         "object-curly-newline": "off",
         "class-methods-use-this": "off",
-        "operator-linebreak": "off"
+        "operator-linebreak": "off",
+        "@typescript-eslint/indent": "off",
+        "@typescript-eslint/quotes": "off"
       }
     }
   ]

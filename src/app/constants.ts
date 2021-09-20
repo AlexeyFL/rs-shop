@@ -1,10 +1,12 @@
-export const localUrl = 'http://localhost:3000/shop';
 export const url = 'https://angular-mock.herokuapp.com/shop';
 
-export const dbUrl = 'http://localhost:3004/db';
-export const goodsUrl = 'http://localhost:3004/goods';
-export const goodsSearchUrl = 'http://localhost:3004/goods/search?text=';
-export const categoriesUrl = 'http://localhost:3004/categories';
+export const localUrl = 'http://localhost:3004';
+// export const localUrl = 'https://angular-mock.herokuapp.com';
+
+export const dbUrl = `${localUrl}/db`;
+export const goodsUrl = `${localUrl}/goods`;
+export const goodsSearchUrl = `${localUrl}/search?text=`;
+export const categoriesUrl = `${localUrl}/categories`;
 
 export const icons = [
   'fas fa-blender',

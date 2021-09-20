@@ -4,6 +4,8 @@ import { AppState } from './redux/state';
 import { getGoods } from './redux/actions/actions';
 import { DatabaseService } from './shop/services/database.service';
 import { CategoryService } from './shop/services/category.service';
+import { CartService } from './shop/services/cart.service';
+import { AuthService } from './shop/services/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -19,10 +21,15 @@ export class AppComponent implements OnInit {
     private store: Store<AppState>,
     public databaseService: DatabaseService,
     public categoryService: CategoryService,
-  ) {}
+    public cartService: CartService,
+    private authService: AuthService,
+  ) {
+    this.authService.registerUser();
+    this.authService.loginUser();
+  }
 
   ngOnInit() {
-    this.store.dispatch(getGoods({ amount: 3 }));
+    // this.store.dispatch(getGoods({ amount: 3 }));
     this.databaseService.getCategories();
   }
 

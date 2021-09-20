@@ -42,7 +42,6 @@ export class CarouselComponent implements OnInit {
     // this.databaseService.getGoodsByCategoryId(this.carouselCategory, 0, 6);
     this.databaseService.getGoodsByCategory(this.carouselCategory);
     this.databaseService.customCategoryGoods$.subscribe((data) => {
-      console.log(data);
     });
   }
 

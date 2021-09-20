@@ -2,14 +2,14 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { BehaviorSubject, Observable, Subject } from 'rxjs';
-import { categoriesUrl, goodsSearchUrl } from '../../constants';
+import { categoriesUrl, goodsSearchUrl, localUrl } from '../../constants';
 import {
   MainCategory,
   SubCategory,
   Good,
   Goods,
   Category,
-  GoodByCategoryId
+  GoodByCategoryId,
 } from '../models/response-models';
 
 @Injectable({
@@ -60,9 +60,9 @@ export class DatabaseService {
 
   goods$$ = new BehaviorSubject<Good[]>([]);
 
-  allGoods$!: Observable<Goods>;
+  allGoods$!: Observable<Good[]>;
 
-  allGoods$$ = new Subject<Goods>();
+  allGoods$$ = new BehaviorSubject<Good[]>([]);
 
   searchedCategories$!: Observable<Category[]>;
 
@@ -221,7 +221,7 @@ export class DatabaseService {
 
   getGoodsByCategory(categoryId: string | undefined) {
     return this.http
-      .get<Goods>('http://localhost:3004/goods/')
+      .get<Goods>(`${localUrl}/goods/`)
       .pipe(
         map((goods: any) => {
           const categories = Object.keys(goods);
@@ -264,7 +264,7 @@ export class DatabaseService {
   ) {
     return this.http
       .get<Good[]>(
-        `http://localhost:3004/goods/category/${categoryId}?start=${start}&count=${count}`,
+        `${localUrl}/goods/category/${categoryId}?start=${start}&count=${count}`,
       )
       .pipe(map((data) => data))
       .subscribe((data) => {
@@ -280,7 +280,7 @@ export class DatabaseService {
   ) {
     return this.http
       .get<Good[]>(
-        `http://localhost:3004/goods/category/${categoryId}/${subcategoryId}?start=${start}&count=${count}`,
+        `${localUrl}/goods/category/${categoryId}/${subcategoryId}?start=${start}&count=${count}`,
       )
       .pipe(map((data) => data))
       .subscribe((data) => {
@@ -290,7 +290,7 @@ export class DatabaseService {
 
   getGoodById(goodId: string) {
     return this.http
-      .get<Good>(`http://localhost:3004/goods/item/${goodId}`)
+      .get<Good>(`${localUrl}/goods/item/${goodId}`)
       .pipe(map((data) => data))
       .subscribe((data) => {
         this.good$$.next(data);
@@ -298,7 +298,7 @@ export class DatabaseService {
   }
 
   /*   getAllGoods(amount: number) {
-    return this.http.get<Goods>('http://localhost:3004/goods/').pipe(
+    return this.http.get<Goods>('${localUrl}/goods/').pipe(
       map((goods: any) => {
         const categories = Object.keys(goods);
         const allGoods: any = [];
@@ -316,9 +316,37 @@ export class DatabaseService {
     );
   } */
 
-  getAllGoods(amount: number) {
+  getAllGoods() {
     return this.http
-      .get<Goods>('http://localhost:3004/goods/')
-      .pipe(map((goods: Goods) => goods));
+      .get<Goods>(`${localUrl}/goods/`)
+      .pipe(
+        map((goods: any) => {
+          const allGoods: any = [];
+          const categories = Object.keys(goods);
+          categories.forEach((category) => {
+            const subCategories = Object.keys(goods[category]);
+            subCategories.forEach((subCategory) => {
+              goods[category][subCategory].forEach((item: any) => {
+                allGoods.push({
+                  availableAmount: item.availableAmount,
+                  description: item.description,
+                  id: item.id,
+                  imageUrls: [...item.imageUrls],
+                  name: item.name,
+                  price: item.price,
+                  rating: item.rating,
+                  category,
+                  subCategory,
+                });
+              });
+            });
+          });
+
+          return allGoods.flat();
+        }),
+      )
+      .subscribe((data) => {
+        this.allGoods$$.next(data);
+      });
   }
 }

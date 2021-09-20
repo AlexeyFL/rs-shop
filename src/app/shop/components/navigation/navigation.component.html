@@ -15,8 +15,8 @@
   </div>
   <div class="navigation__item">
     <a [routerLink]="['cart']">Корзина</a>
-    <span *ngIf="cartService.cart.length > 0">{{
-      cartService.cart.length
+    <span *ngIf="cartService.cartGoods.length > 0">{{
+      cartService.cartGoods.length
     }}</span>
   </div>
 </div>

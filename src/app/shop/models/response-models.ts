@@ -110,3 +110,31 @@ export interface Response {
   categories: MainCategory[];
   goods: Good[];
 }
+
+export interface UserItems {
+  id: string;
+  amount: number;
+}
+export interface UserDetails {
+  name: string;
+  address: string;
+  phone: string;
+  timeToDeliver: string;
+  comment: string;
+}
+export interface UserOrders {
+  items: [UserItems];
+  details: UserDetails;
+  id: string;
+}
+
+export interface UserInfo {
+  firstName: string;
+  lastName: string;
+  cart: string[];
+  favorites: string[];
+  orders: [UserOrders];
+}
+export interface UserToken {
+  token?: string;
+}

@@ -28,8 +28,11 @@ export class GoodsPageComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit() {
-    this.categoryUnsubscribe =
-      this.databaseService.currentCategory$.subscribe();
+    this.categoryUnsubscribe = this.databaseService.currentCategory$.subscribe(
+      (data) => {
+        console.log('currentCategory', data);
+      },
+    );
   }
 
   counter(i: number) {
@@ -41,17 +44,11 @@ export class GoodsPageComponent implements OnInit, OnDestroy {
     this.isAsc = !this.isAsc;
   }
 
-  addToCart(good: Good) {
-    // this.cartService.cart.push(good);
-
-    // this.databaseService.getAllGoods(3);
-
-    this.cartService.addToCart(good);
+  addToCart(goodId: string) {
+  
+    this.cartService.addToCart(goodId);
   }
 
-  addToCartById(goodId: string) {
-    this.cartService.addToCartById(goodId);
-  }
 
   ngOnDestroy() {
     this.categoryUnsubscribe.unsubscribe();

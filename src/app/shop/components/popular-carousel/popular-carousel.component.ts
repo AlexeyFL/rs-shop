@@ -67,7 +67,7 @@ export class PopularCarouselComponent implements OnInit, OnDestroy {
   }
 
   goToGood(id: string) {
-    this.router.navigate([`${this.subCategory}/${id}`]);
+    this.router.navigate([this.category, this.subCategory, id]);
   }
 
   ngOnDestroy() {

@@ -9,6 +9,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Good } from '../../models/response-models';
+import { CartService } from '../../services/cart.service';
 import { DatabaseService } from '../../services/database.service';
 
 export type BreadcrumbsCategory = {
@@ -47,6 +48,7 @@ export class GoodPageComponent implements OnInit, OnDestroy {
     private databaseService: DatabaseService,
     private route: ActivatedRoute,
     private router: Router,
+    private cartService: CartService,
   ) {}
 
   ngOnInit(): void {
@@ -93,6 +95,10 @@ export class GoodPageComponent implements OnInit, OnDestroy {
     } else {
       this.router.navigate(['/', data.id]);
     }
+  }
+
+  addToCart(goodId: string) {
+    this.cartService.addToCart(goodId);
   }
 
   ngOnDestroy() {

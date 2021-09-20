@@ -1,22 +1,25 @@
-<div class="navigation">
-  <div class="navigation__item">
-    <a routerLink="/">logo</a>
+<div class="header__wrapper">
+  <a class="logo" routerLink="/"><i class="fab fa-pied-piper-alt"></i></a>
+  <div [ngClass]="{ active: showHideNavigation }" class="navigation">
+    <div class="navigation__item">
+      <button (click)="showHideCategoriesPopup()" class="btn btn--common">
+        Категории
+      </button>
+    </div>
+    <div class="navigation__item">
+      <app-search></app-search>
+    </div>
+    <div class="navigation__item">
+      <app-auth></app-auth>
+    </div>
+    <div class="navigation__item">
+      <a class="cart-link" [routerLink]="['cart']">Корзина</a>
+      <span class="cart-count" *ngIf="cartService.cartGoods.length > 0">{{
+        cartService.cartGoods.length
+      }}</span>
+    </div>
   </div>
-  <div class="navigation__item">
-    <button (click)="showHideCategoriesPopup()" class="btn">
-      Категории
-    </button>
-  </div>
-  <div class="navigation__item">
-    <app-search></app-search>
-  </div>
-  <div class="navigation__item">
-    <app-auth></app-auth>
-  </div>
-  <div class="navigation__item">
-    <a [routerLink]="['cart']">Корзина</a>
-    <span *ngIf="cartService.cartGoods.length > 0">{{
-      cartService.cartGoods.length
-    }}</span>
-  </div>
+  <button (click)="showNavigation()" class="btn header__btn">
+    <i class="fas fa-bars"></i>
+  </button>
 </div>

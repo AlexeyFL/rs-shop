@@ -12,6 +12,8 @@ import { CategoryService } from '../../services/category.service';
 export class NavigationComponent {
   showCategoriesPopup!: boolean;
 
+  showHideNavigation: boolean = false;
+
   constructor(
     private router: Router,
     public cartService: CartService,
@@ -25,5 +27,9 @@ export class NavigationComponent {
   showHideCategoriesPopup() {
     this.showCategoriesPopup = !this.showCategoriesPopup;
     this.categoryService.showHideCategoryPopup(this.showCategoriesPopup);
+  }
+
+  showNavigation() {
+    this.showHideNavigation = !this.showHideNavigation;
   }
 }

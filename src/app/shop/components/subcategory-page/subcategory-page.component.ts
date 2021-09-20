@@ -1,7 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { CategoryService } from '../../services/category.service';
 import { DatabaseService } from '../../services/database.service';
 
 @Component({

@@ -5,7 +5,7 @@ export const localUrl = 'http://localhost:3004';
 
 export const dbUrl = `${localUrl}/db`;
 export const goodsUrl = `${localUrl}/goods`;
-export const goodsSearchUrl = `${localUrl}/search?text=`;
+export const goodsSearchUrl = `${localUrl}/goods/search?text=`;
 export const categoriesUrl = `${localUrl}/categories`;
 
 export const icons = [

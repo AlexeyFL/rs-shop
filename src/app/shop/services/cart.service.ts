@@ -53,6 +53,10 @@ export class CartService {
     });
   }
 
+  removeGood(id: string){
+
+  }
+
   addToCart(body: string) {
     this.http
       .post(

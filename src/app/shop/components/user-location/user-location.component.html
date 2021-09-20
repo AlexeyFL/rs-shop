@@ -5,7 +5,7 @@
   </button>
 
   <div [ngClass]="{ show: cityListShow }" class="cities">
-    <div class="cities__header">Your city</div>
+    <div class="cities__header">Ваш город</div>
     <input
       #searchCityInput
       class="cities__input"
@@ -17,6 +17,6 @@
         {{ city }}
       </li>
     </ul>
-    <button (click)="onSaveCurrentCity()" class="btn">Save</button>
+    <button (click)="onSaveCurrentCity()" class="btn cities__btn">Сохранить</button>
   </div>
 </div>

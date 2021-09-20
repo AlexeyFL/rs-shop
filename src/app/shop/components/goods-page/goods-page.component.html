@@ -1,14 +1,14 @@
 <div class="sort">
-  <span>Сортировать по:</span>
-  <button (click)="sortBy('price')">Цене</button>
-  <button (click)="sortBy('rating')">Рейтингу</button>
+  <span class="sort__heading">Сортировать по:</span>
+  <button class="btn sort__btn" (click)="sortBy('price')">Цене</button>
+  <button class="btn sort__btn" (click)="sortBy('rating')">Рейтингу</button>
 </div>
 <div class="goods-cards">
   <div *ngFor="let good of goods | sort: sortByValue:isAsc" class="good-card">
     <div class="good-card__image">
       <img src="{{ good.imageUrls[0] }}" alt="{{ good.name }}" />
     </div>
-    <a [routerLink]="good.id">{{ good.name | shorten: 20 }}</a>
+    <span class="goods-cards__link" (click)="navigateTo(good.categoryId,good.subCategoryId,good.id)" >{{ good.name | shorten: 20 }}</span>
     <div class="good-card__price">
       <strong>{{ good.price.toFixed(2) }}</strong> р.
     </div>
@@ -29,10 +29,10 @@
     <div class="good-card__rating">
       <i *ngFor="let item of counter(good.rating)" class="fas fa-star"></i>
     </div>
-    <div class="good-card__rating">
+    <div class="good-card__btns">
       <button
         [disabled]="good.isInCart"
-        class="btn"
+        class="btn goods-cards__btn"
         (click)="addToCart(good.id); good.isInCart = true"
       >
         В корзину
@@ -40,7 +40,7 @@
       <button
         [disabled]="good.isFavorite"
         (click)="good.isFavorite = true"
-        class="btn"
+        class="btn goods-cards__btn"
       >
         В избранное
       </button>

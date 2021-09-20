@@ -1,6 +1,6 @@
 <div class="authorization">
-  <button (click)="onShowInfo()" class="btn authorization__btn">
-    <i class="fas fa-sign-in-alt"></i>Account
+  <button (click)="onShowInfo()" class="btn btn--common">
+    <i class="fas fa-sign-in-alt"></i>Аккаунт
   </button>
   <div [ngClass]="{ active: showInfo }" class="authorization__info">
     <div class="user">
@@ -9,7 +9,7 @@
         <span *ngIf="authorized">{{ userName }}</span>
       </div>
       <div class="user__item">
-        <button *ngIf="!authorized" (click)="onShowLoginForm()" class="btn">
+        <button *ngIf="!authorized" (click)="onShowLoginForm()" class="btn user__btn">
           Войти
         </button>
         <button *ngIf="authorized" (click)="logout()" class="form__btn btn">
@@ -19,11 +19,13 @@
       <div class="user__item text--center">
         <a [routerLink]="['cart']" class="user__link"
           ><i class="fas fa-shopping-cart"></i>Корзина</a
-        ><span class="user__count">1</span>
+        >
+        <!-- <span class="user__count">1</span> -->
       </div>
       <div class="user__item">
-        <a href="" class="user__link"><i class="far fa-heart"></i>Избранные</a
-        ><span class="user__count">1</span>
+        <a [routerLink]="['favorite']" class="user__link"><i class="far fa-heart"></i>Избранные</a
+        >
+        <!-- <span class="user__count">1</span> -->
       </div>
     </div>
   </div>

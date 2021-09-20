@@ -1,6 +1,7 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { Good } from '../../models/response-models';
+import { Good, GoodByCategoryId } from '../../models/response-models';
 import { CartService } from '../../services/cart.service';
 import { CategoryService } from '../../services/category.service';
 import { DatabaseService } from '../../services/database.service';
@@ -15,7 +16,7 @@ export class GoodsPageComponent implements OnInit, OnDestroy {
 
   sortByValue: string = '';
 
-  @Input() goods!: Good[] | null;
+  @Input() goods!: Good[] | null | GoodByCategoryId[];
 
   categoryUnsubscribe!: Subscription;
 
@@ -25,6 +26,8 @@ export class GoodsPageComponent implements OnInit, OnDestroy {
     private databaseService: DatabaseService,
     private cartService: CartService,
     private categoryService: CategoryService,
+    private router: Router,
+    private route: ActivatedRoute,
   ) {}
 
   ngOnInit() {
@@ -44,11 +47,17 @@ export class GoodsPageComponent implements OnInit, OnDestroy {
     this.isAsc = !this.isAsc;
   }
 
-  addToCart(goodId: string) {
-  
-    this.cartService.addToCart(goodId);
+  navigateTo(categoryId: string, subcategoryId: string, goodId: string) {
+    if (categoryId && subcategoryId) {
+      this.router.navigate(['/', categoryId, subcategoryId, goodId]);
+    } else {
+      this.router.navigate([goodId], { relativeTo: this.route });
+    }
   }
 
+  addToCart(goodId: string) {
+    this.cartService.addToCart(goodId);
+  }
 
   ngOnDestroy() {
     this.categoryUnsubscribe.unsubscribe();

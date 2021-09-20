@@ -10,6 +10,8 @@ import { CategoryService } from '../../services/category.service';
   styleUrls: ['./menu.component.scss'],
 })
 export class MenuComponent implements OnInit {
+  showMenu: boolean = false;
+
   categories: MainCategory[];
 
   constructor(
@@ -34,5 +36,9 @@ export class MenuComponent implements OnInit {
 
   onClosePopup() {
     this.categoryService.showHideCategoryPopup(false);
+  }
+
+  showMobileMenu() {
+    this.showMenu = !this.showMenu;
   }
 }

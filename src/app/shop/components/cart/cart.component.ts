@@ -16,6 +16,8 @@ export class CartComponent implements OnInit {
 
   showSuccessMessage: boolean = false;
 
+  deliveryDate: string = 'Сегодня';
+
   cartOrderSuccess: {
     userName: string;
     address: string;
@@ -47,6 +49,10 @@ export class CartComponent implements OnInit {
 
   navigateTo(category: string, subCategory: string, id: string) {
     this.router.navigate(['/', category, subCategory, id]);
+  }
+
+  removeGood(id: string) {
+    console.log(id);
   }
 
   onSubmit(form: NgForm) {

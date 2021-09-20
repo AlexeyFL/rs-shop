@@ -30,6 +30,7 @@ import { FooterContactsComponent } from './components/footer-contacts/footer-con
 import { SocialComponent } from './components/social/social.component';
 import { NewCategoryPageComponent } from './components/new-category-page/new-category-page.component';
 import { SubcategoryPageComponent } from './components/subcategory-page/subcategory-page.component';
+import { FavoriteComponent } from './components/favorite/favorite.component';
 
 @NgModule({
   declarations: [
@@ -50,6 +51,7 @@ import { SubcategoryPageComponent } from './components/subcategory-page/subcateg
     SocialComponent,
     NewCategoryPageComponent,
     SubcategoryPageComponent,
+    FavoriteComponent,
   ],
   imports: [
     FormsModule,

@@ -9,14 +9,17 @@
     </div>
     <div class="cart-list__body">
       <div *ngFor="let cart of cartService.cartGoods" class="cart-list__item">
+        <span (click)="removeGood(cart.id)" class="cart-list__remove"
+          >Удалить</span
+        >
         <div class="cart-list__part">
           <div class="cart-list__image">
             <img src="{{ cart.imageUrls[0] }}" alt="{{ cart.name }}" />
           </div>
-          <a
+          <span
             (click)="navigateTo(cart.category, cart.subCategory, cart.id)"
             class="cart-list__name"
-            >{{ cart.name }}</a
+            >{{ cart.name }}</span
           >
         </div>
         <div class="cart-list__part">
@@ -27,8 +30,8 @@
           </div>
         </div>
         <div class="cart-list__part">
-          <span class="cart-list__delivery">Курьером: {{ 0 }}</span>
-          <span class="cart-list__delivery">Самовывоз: {{ 0 }}</span>
+          <div class="cart-list__delivery">Курьером: {{ deliveryDate }}</div>
+          <div class="cart-list__delivery">Самовывоз: {{ deliveryDate }}</div>
         </div>
         <div class="cart-list__part">
           <span class="cart-list__price">{{ cart.price.toFixed(2) }} р.</span>

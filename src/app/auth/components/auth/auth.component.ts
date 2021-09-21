@@ -1,13 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { User } from '../../../shop/models/response-models';
 
 @Component({
   selector: 'app-auth',
   templateUrl: './auth.component.html',
   styleUrls: ['./auth.component.scss'],
 })
-export class AuthComponent implements OnInit {
+export class AuthComponent {
   showInfo: boolean = false;
 
   showLoginForm: boolean = false;
@@ -15,8 +14,6 @@ export class AuthComponent implements OnInit {
   authorized: boolean = false;
 
   userName!: string;
-
-  ngOnInit() {}
 
   onShowInfo() {
     this.showInfo = !this.showInfo;

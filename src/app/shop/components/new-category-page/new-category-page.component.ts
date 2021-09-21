@@ -2,7 +2,6 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { GoodByCategoryId } from '../../models/response-models';
-import { CategoryService } from '../../services/category.service';
 import { DatabaseService } from '../../services/database.service';
 
 @Component({
@@ -30,8 +29,8 @@ export class NewCategoryPageComponent implements OnInit, OnDestroy {
       this.databaseService.getGoodsByCategory(data.categoryId);
 
       this.unsubscribecustomCategory =
-        this.databaseService.customCategoryGoods$.subscribe((data) => {
-          this.goods = data.slice(0, 10);
+        this.databaseService.customCategoryGoods$.subscribe((categoryGoods) => {
+          this.goods = categoryGoods.slice(0, 10);
         });
     });
   }

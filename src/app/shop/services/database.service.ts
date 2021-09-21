@@ -131,8 +131,7 @@ export class DatabaseService {
       .get<MainCategory[]>(categoriesUrl)
       .pipe(
         map((data: MainCategory[]) =>
-          data.filter((item: MainCategory) => item.id === id),
-        ),
+          data.filter((item: MainCategory) => item.id === id)),
         map((data: MainCategory[]) => data[0].subCategories),
       )
       .subscribe((data: SubCategory[]) => {
@@ -296,25 +295,6 @@ export class DatabaseService {
         this.good$$.next(data);
       });
   }
-
-  /*   getAllGoods(amount: number) {
-    return this.http.get<Goods>('${localUrl}/goods/').pipe(
-      map((goods: any) => {
-        const categories = Object.keys(goods);
-        const allGoods: any = [];
-        categories.forEach((category: string) => {
-          const subCategories = Object.keys(goods[category]);
-          subCategories.forEach((subcategory: string, index: number) => {
-            if (amount < index) {
-              allGoods.push(goods[category][subcategory]);
-            }
-          });
-        });
-
-        return allGoods.flat();
-      }),
-    );
-  } */
 
   getAllGoods() {
     return this.http

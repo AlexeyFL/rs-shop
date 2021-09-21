@@ -31,11 +31,7 @@ export class GoodsPageComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit() {
-    this.categoryUnsubscribe = this.databaseService.currentCategory$.subscribe(
-      (data) => {
-        console.log('currentCategory', data);
-      },
-    );
+    this.categoryUnsubscribe = this.databaseService.currentCategory$.subscribe();
   }
 
   counter(i: number) {

@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { AppState } from './redux/state';
-import { getGoods } from './redux/actions/actions';
 import { DatabaseService } from './shop/services/database.service';
 import { CategoryService } from './shop/services/category.service';
 import { CartService } from './shop/services/cart.service';
@@ -32,7 +31,6 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    // this.store.dispatch(getGoods({ amount: 3 }));
     this.databaseService.getCategories();
   }
 

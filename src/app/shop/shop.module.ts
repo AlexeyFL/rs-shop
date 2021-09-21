@@ -1,15 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { StoreModule } from '@ngrx/store';
 
 import { EffectsModule } from '@ngrx/effects';
 import { SwiperModule } from 'swiper/angular';
 import * as fromShopReducer from '../redux/reducers/reducers';
-
-import { HeadersInterceptor } from './interceptors/headers.interceptor';
 import { UserLocationComponent } from './components/user-location/user-location.component';
 import { SharedModule } from '../shared/shared.module';
 import { ContactsComponent } from './components/contacts/contacts.component';
@@ -80,12 +78,6 @@ import { FavoriteComponent } from './components/favorite/favorite.component';
     NewCategoryPageComponent,
     SubcategoryPageComponent,
   ],
-  providers: [
-    /* {
-      provide: HTTP_INTERCEPTORS,
-      useClass: HeadersInterceptor,
-      multi: true,
-    }, */
-  ],
+  providers: [],
 })
 export class ShopModule {}

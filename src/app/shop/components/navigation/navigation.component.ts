@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
 import { CartService } from '../../services/cart.service';
 import { CategoryService } from '../../services/category.service';
 

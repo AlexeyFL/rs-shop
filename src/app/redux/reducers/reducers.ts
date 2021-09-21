@@ -31,7 +31,7 @@ const reducer = createReducer(
     loading: false,
     loaded: true,
   })),
-  on(GoodsActions.getGoodByIdFailed , (state, { error }) => ({
+  on(GoodsActions.getGoodByIdFailed, (state, { error }) => ({
     ...state,
     error,
     loading: false,

@@ -105,6 +105,9 @@ a {
         transition: transform 0.3s;
       }
       .category__link {
+        i {
+          margin-right: 5px;
+        }
         &.active {
           background: #fff;
           color: #474a51;
@@ -338,6 +341,11 @@ a {
 .authorization {
   position: relative;
 
+  .btn {
+    i {
+      margin-right: 5px;
+    }
+  }
   &__form,
   &__info {
     position: absolute;

@@ -20,7 +20,7 @@
             (click)="onClosePopup()"
             class="category__link"
             [routerLink]="[category.id]"
-            >{{ category.name }}</a
+            ><i class="{{ categoryIcons[i] }}"></i>{{ category.name }}</a
           >
           <ul class="category-list">
             <li *ngFor="let subCategory of category.subCategories">

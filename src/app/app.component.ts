@@ -6,6 +6,7 @@ import { DatabaseService } from './shop/services/database.service';
 import { CategoryService } from './shop/services/category.service';
 import { CartService } from './shop/services/cart.service';
 import { AuthService } from './shop/services/auth.service';
+import { icons } from './constants';
 
 @Component({
   selector: 'app-root',
@@ -16,6 +17,8 @@ export class AppComponent implements OnInit {
   title = 'rs-shop';
 
   selectedItem: number = 0;
+
+  categoryIcons: string[] = icons;
 
   constructor(
     private store: Store<AppState>,

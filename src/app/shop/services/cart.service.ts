@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, Observable, Subject } from 'rxjs';
 import { Store } from '@ngrx/store';
 import { getGoods } from 'src/app/redux/actions/actions';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
@@ -50,18 +50,28 @@ export class CartService {
     this.databaseService.getAllGoods();
     this.databaseService.allGoods$.subscribe((data) => {
       this.cartGoods = data.filter((item) => goods.includes(item.id));
+      this.cartGoods$$.next(this.cartGoods);
     });
   }
 
-  removeGood(id: string){
+  removeGood(id: string) {
+    this.http
+      .delete(`${localUrl}/users/cart?id=${id}`, {
+        headers: new HttpHeaders().set(
+          'Authorization',
+          `Bearer ${localStorage.getItem('token')}` || '',
+        ),
+      })
+      .subscribe();
 
+    this.getUserInfo();
   }
 
-  addToCart(body: string) {
+  addToCart(goodId: string) {
     this.http
       .post(
         `${localUrl}/users/cart`,
-        { id: body },
+        { id: goodId },
         {
           headers: new HttpHeaders().set(
             'Authorization',
@@ -69,8 +79,6 @@ export class CartService {
           ),
         },
       )
-      .subscribe((data) => {
-        console.log('cart', data);
-      });
+      .subscribe();
   }
 }

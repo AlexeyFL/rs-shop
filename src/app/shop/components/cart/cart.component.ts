@@ -36,12 +36,10 @@ export class CartComponent implements OnInit {
     public cartService: CartService,
     private authService: AuthService,
     private router: Router,
-  ) {
-    this.cartService.getUserInfo();
-  }
+  ) {}
 
   ngOnInit(): void {
-    this.cartService.cartGoods$.subscribe((data) => {});
+    // this.cartService.cartGoods$.subscribe((data) => {});
 
     this.currentDate = new Date().toISOString().substring(0, 10);
     this.cartService.getUserInfo();
@@ -52,7 +50,7 @@ export class CartComponent implements OnInit {
   }
 
   removeGood(id: string) {
-    console.log(id);
+    this.cartService.removeGood(id);
   }
 
   onSubmit(form: NgForm) {
@@ -64,6 +62,6 @@ export class CartComponent implements OnInit {
       time: form.value.time,
       userName: form.value.userName,
     };
-    console.log(form);
+    form.reset();
   }
 }

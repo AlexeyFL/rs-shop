@@ -8,7 +8,10 @@
       <span class="cart-list__heading-item"> Стоимость </span>
     </div>
     <div class="cart-list__body">
-      <div *ngFor="let cart of cartService.cartGoods" class="cart-list__item">
+      <div
+        *ngFor="let cart of cartService.cartGoods$ | async"
+        class="cart-list__item"
+      >
         <span (click)="removeGood(cart.id)" class="cart-list__remove"
           >Удалить</span
         >
@@ -143,10 +146,7 @@
     </form>
     <div *ngIf="showSuccessMessage" class="success-message">
       <h5>Ваш заказ создан успешно, ожидайте доставку в указанное время</h5>
-      <div
-        *ngFor="let good of cartService.cartGoods$ | async"
-        class="cart-goods"
-      >
+      <div *ngFor="let good of cartService.cartGoods$ | async" class="cart-goods">
         {{ good.name }}
       </div>
 

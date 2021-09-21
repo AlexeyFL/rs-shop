@@ -42,7 +42,7 @@ export class CartComponent implements OnInit {
     // this.cartService.cartGoods$.subscribe((data) => {});
 
     this.currentDate = new Date().toISOString().substring(0, 10);
-    this.cartService.getUserInfo();
+    this.cartService.getCartGoods();
   }
 
   navigateTo(category: string, subCategory: string, id: string) {

@@ -7,7 +7,7 @@ import SwiperCore, {
 } from 'swiper';
 import { Router } from '@angular/router';
 import { DatabaseService } from '../../services/database.service';
-import { Good, GoodByCategoryId } from '../../models/response-models';
+import { GoodByCategoryId } from '../../models/response-models';
 
 SwiperCore.use([Navigation, Pagination, Autoplay]);
 
@@ -26,9 +26,9 @@ export class CarouselComponent implements OnInit {
   config: SwiperOptions = {
     slidesPerView: 1,
     spaceBetween: 50,
-    // autoplay: {
-    //   delay: 2500,
-    // },
+    autoplay: {
+      delay: 2500,
+    },
     navigation: true,
     pagination: { clickable: true },
   };
@@ -39,10 +39,8 @@ export class CarouselComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    // this.databaseService.getGoodsByCategoryId(this.carouselCategory, 0, 6);
     this.databaseService.getGoodsByCategory(this.carouselCategory);
-    this.databaseService.customCategoryGoods$.subscribe((data) => {
-    });
+    this.databaseService.customCategoryGoods$.subscribe();
   }
 
   goToGood(id: string, categoryId: string, subCategoryId: string) {

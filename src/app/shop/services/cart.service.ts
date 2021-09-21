@@ -1,11 +1,7 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, Subject } from 'rxjs';
-import { Store } from '@ngrx/store';
-import { getGoods } from 'src/app/redux/actions/actions';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { map, switchMap } from 'rxjs/operators';
-import { Good, Goods, UserInfo, UserToken } from '../models/response-models';
-import { AppState } from '../../redux/state';
+import { Good, Goods, UserInfo } from '../models/response-models';
 import { AuthService } from './auth.service';
 import { localUrl } from '../../constants';
 import { DatabaseService } from './database.service';
@@ -15,7 +11,6 @@ import { DatabaseService } from './database.service';
 })
 export class CartService {
   goods!: Observable<Goods | undefined>;
-  // userInfo!: Observable<Goods | undefined>;
 
   goodsIds: string[] = [];
 
@@ -33,7 +28,7 @@ export class CartService {
     this.cartGoods$ = this.cartGoods$$.asObservable();
   }
 
-  getUserInfo() {
+  getCartGoods() {
     this.http
       .get<UserInfo>(`${localUrl}/users/userInfo`, {
         headers: new HttpHeaders().set(
@@ -42,11 +37,11 @@ export class CartService {
         ),
       })
       .subscribe((data) => {
-        this.getCartGoods(data.cart);
+        this.filterGoods(data.cart);
       });
   }
 
-  getCartGoods(goods: string[]) {
+  filterGoods(goods: string[]) {
     this.databaseService.getAllGoods();
     this.databaseService.allGoods$.subscribe((data) => {
       this.cartGoods = data.filter((item) => goods.includes(item.id));
@@ -64,7 +59,7 @@ export class CartService {
       })
       .subscribe();
 
-    this.getUserInfo();
+    this.getCartGoods();
   }
 
   addToCart(goodId: string) {

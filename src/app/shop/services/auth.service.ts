@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { map } from 'rxjs/operators';
+import { Observable, Subject } from 'rxjs';
 import { localUrl } from '../../constants';
 
 @Injectable({
@@ -8,14 +9,21 @@ import { localUrl } from '../../constants';
 })
 export class AuthService {
   // token: string | undefined = '';
+  loginError$!: Observable<string>;
 
-  constructor(private http: HttpClient) {}
+  loginError$$ = new Subject<string>();
 
-  loginUser() {
+  constructor(private http: HttpClient) {
+    this.loginError$ = this.loginError$$.asObservable();
+  }
+
+  loginUser(loginData = { login: 'string', password: 'string' }) {
     this.http
-      .post(`${localUrl}/users/login`, {
-        login: 'string',
-        password: 'string',
+      .post(`${localUrl}/users/login`, loginData, {
+        headers: new HttpHeaders().set(
+          'Authorization',
+          `Bearer ${localStorage.getItem('token')}` || '',
+        ),
       })
       .pipe(
         map((data: any) => {
@@ -24,17 +32,24 @@ export class AuthService {
           }
         }),
       )
-      .subscribe();
+      .subscribe(
+        () => {},
+        (err) => {
+          this.loginError$$.next(err.statusText);
+        },
+      );
   }
 
-  registerUser() {
+  registerUser(
+    userData = {
+      firstName: 'string',
+      lastName: 'string',
+      login: 'string',
+      password: 'string',
+    },
+  ) {
     this.http
-      .post(`${localUrl}/users/register`, {
-        firstName: 'string',
-        lastName: 'string',
-        login: 'string',
-        password: 'string',
-      })
+      .post(`${localUrl}/users/register`, userData)
       .pipe(
         map((data: any) => {
           if (data) {

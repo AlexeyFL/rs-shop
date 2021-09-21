@@ -164,6 +164,10 @@ a {
   .form__btn {
     color: #fff;
     background: #272c29;
+    &:disabled {
+      cursor: not-allowed;
+      background: #565857;
+    }
   }
   .form__title {
     text-align: center;
@@ -366,6 +370,12 @@ a {
 }
 
 .user {
+  .login-error {
+    font-size: 15px;
+    font-weight: 300;
+    margin-bottom: 10px;
+    text-align: center;
+  }
   &__avatar {
     display: flex;
     margin: auto;
@@ -376,6 +386,12 @@ a {
     width: 50px;
     height: 50px;
     border-radius: 50%;
+    margin-bottom: 5px;
+  }
+  &__name {
+    text-align: center;
+    font-size: 14px;
+    font-weight: 300;
     margin-bottom: 10px;
   }
   .user__link {
@@ -787,6 +803,8 @@ a {
     }
     &:disabled {
       background: #adb0b6;
+      cursor: not-allowed;
+      box-shadow: none;
     }
   }
   &__icon {

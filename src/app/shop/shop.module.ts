@@ -82,7 +82,7 @@ import { ShopDescriptionComponent } from './components/shop-description/shop-des
     NewCategoryPageComponent,
     SubcategoryPageComponent,
     VideoComponent,
-    ShopDescriptionComponent
+    ShopDescriptionComponent,
   ],
   providers: [],
 })

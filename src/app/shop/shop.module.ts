@@ -29,6 +29,8 @@ import { SocialComponent } from './components/social/social.component';
 import { NewCategoryPageComponent } from './components/new-category-page/new-category-page.component';
 import { SubcategoryPageComponent } from './components/subcategory-page/subcategory-page.component';
 import { FavoriteComponent } from './components/favorite/favorite.component';
+import { VideoComponent } from './components/video/video.component';
+import { ShopDescriptionComponent } from './components/shop-description/shop-description.component';
 
 @NgModule({
   declarations: [
@@ -50,6 +52,8 @@ import { FavoriteComponent } from './components/favorite/favorite.component';
     NewCategoryPageComponent,
     SubcategoryPageComponent,
     FavoriteComponent,
+    VideoComponent,
+    ShopDescriptionComponent,
   ],
   imports: [
     FormsModule,
@@ -77,6 +81,8 @@ import { FavoriteComponent } from './components/favorite/favorite.component';
     SocialComponent,
     NewCategoryPageComponent,
     SubcategoryPageComponent,
+    VideoComponent,
+    ShopDescriptionComponent
   ],
   providers: [],
 })

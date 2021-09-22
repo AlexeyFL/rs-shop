@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CartService } from '../../services/cart.service';
 import { CategoryService } from '../../services/category.service';
@@ -8,8 +8,8 @@ import { CategoryService } from '../../services/category.service';
   templateUrl: './navigation.component.html',
   styleUrls: ['./navigation.component.scss'],
 })
-export class NavigationComponent {
-  showCategoriesPopup!: boolean;
+export class NavigationComponent implements OnInit {
+  showCategoriesPopup: boolean = false;
 
   showHideNavigation: boolean = false;
 
@@ -18,6 +18,12 @@ export class NavigationComponent {
     public cartService: CartService,
     private categoryService: CategoryService,
   ) {}
+
+  ngOnInit() {
+    this.categoryService.showCategoryPopup$.subscribe((data) => {
+      this.showCategoriesPopup = data;
+    });
+  }
 
   showCategories() {
     this.router.navigate(['categories']);

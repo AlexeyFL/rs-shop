@@ -11,6 +11,7 @@ import { map } from 'rxjs/operators';
 import { Good } from '../../models/response-models';
 import { CartService } from '../../services/cart.service';
 import { DatabaseService } from '../../services/database.service';
+import { FavoriteService } from '../../services/favorite.service';
 
 export type BreadcrumbsCategory = {
   id: string | undefined;
@@ -49,6 +50,7 @@ export class GoodPageComponent implements OnInit, OnDestroy {
     private route: ActivatedRoute,
     private router: Router,
     private cartService: CartService,
+    private favoriteService: FavoriteService,
   ) {}
 
   ngOnInit(): void {
@@ -99,6 +101,10 @@ export class GoodPageComponent implements OnInit, OnDestroy {
 
   addToCart(goodId: string) {
     this.cartService.addToCart(goodId);
+  }
+
+  addToFavorite(goodId: string) {
+    this.favoriteService.addToFavorite(goodId);
   }
 
   ngOnDestroy() {

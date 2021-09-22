@@ -5,6 +5,7 @@ import { Good, GoodByCategoryId } from '../../models/response-models';
 import { CartService } from '../../services/cart.service';
 import { CategoryService } from '../../services/category.service';
 import { DatabaseService } from '../../services/database.service';
+import { FavoriteService } from '../../services/favorite.service';
 
 @Component({
   selector: 'app-goods-page',
@@ -26,6 +27,7 @@ export class GoodsPageComponent implements OnInit, OnDestroy {
     private databaseService: DatabaseService,
     private cartService: CartService,
     private categoryService: CategoryService,
+    private favoriteService: FavoriteService,
     private router: Router,
     private route: ActivatedRoute,
   ) {}
@@ -53,6 +55,10 @@ export class GoodsPageComponent implements OnInit, OnDestroy {
 
   addToCart(goodId: string) {
     this.cartService.addToCart(goodId);
+  }
+
+  addToFavorite(goodId: string) {
+    this.favoriteService.addToFavorite(goodId);
   }
 
   ngOnDestroy() {

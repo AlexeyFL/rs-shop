@@ -1,32 +1,32 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { DatabaseService } from './database.service';
 import { Good, Goods, UserInfo } from '../models/response-models';
 import { localUrl } from '../../constants';
-import { DatabaseService } from './database.service';
 
 @Injectable({
   providedIn: 'root',
 })
-export class CartService {
+export class FavoriteService {
   goods!: Observable<Goods | undefined>;
 
   goodsIds: string[] = [];
 
-  cartGoods: Good[] = [];
+  favoriteGoods: Good[] = [];
 
-  cartGoods$!: Observable<Good[]>;
+  favoriteGoods$!: Observable<Good[]>;
 
-  cartGoods$$ = new BehaviorSubject<Good[]>([]);
+  favoriteGoods$$ = new BehaviorSubject<Good[]>([]);
 
   constructor(
-    private http: HttpClient,
     private databaseService: DatabaseService,
+    private http: HttpClient,
   ) {
-    this.cartGoods$ = this.cartGoods$$.asObservable();
+    this.favoriteGoods$ = this.favoriteGoods$$.asObservable();
   }
 
-  getCartGoods() {
+  getfavoriteGoods() {
     this.http
       .get<UserInfo>(`${localUrl}/users/userInfo`, {
         headers: new HttpHeaders().set(
@@ -35,21 +35,21 @@ export class CartService {
         ),
       })
       .subscribe((data) => {
-        this.filterGoods(data.cart);
+        this.filterGoods(data.favorites);
       });
   }
 
   filterGoods(goods: string[]) {
     this.databaseService.getAllGoods();
     this.databaseService.allGoods$.subscribe((data) => {
-      this.cartGoods = data.filter((item) => goods.includes(item.id));
-      this.cartGoods$$.next(this.cartGoods);
+      this.favoriteGoods = data.filter((item) => goods.includes(item.id));
+      this.favoriteGoods$$.next(this.favoriteGoods);
     });
   }
 
   removeGood(id: string) {
     this.http
-      .delete(`${localUrl}/users/cart?id=${id}`, {
+      .delete(`${localUrl}/users/favorites?id=${id}`, {
         headers: new HttpHeaders().set(
           'Authorization',
           `Bearer ${localStorage.getItem('token')}` || '',
@@ -57,13 +57,13 @@ export class CartService {
       })
       .subscribe();
 
-    this.getCartGoods();
+    this.getfavoriteGoods();
   }
 
-  addToCart(goodId: string) {
+  addToFavorite(goodId: string) {
     this.http
       .post(
-        `${localUrl}/users/cart`,
+        `${localUrl}/users/favorites`,
         { id: goodId },
         {
           headers: new HttpHeaders().set(

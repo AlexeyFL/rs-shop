@@ -39,7 +39,7 @@
       </button>
       <button
         [disabled]="good.isFavorite"
-        (click)="good.isFavorite = true"
+        (click)="addToFavorite(good.id);good.isFavorite = true"
         class="btn goods-cards__btn"
       >
         В избранное

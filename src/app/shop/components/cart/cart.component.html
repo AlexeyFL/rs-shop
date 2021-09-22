@@ -43,7 +43,11 @@
     </div>
   </div>
 
-  <div class="cart-order">
+  <div class="cart__btns">
+    <button class="btn btn--common" (click)="onShowOrderForm()" [disabled]="!showOrderFormButton">Заказать</button>
+  </div>
+
+  <div *ngIf="showOrderForm" class="cart-order">
     <form
       (ngSubmit)="onSubmit(orderForm)"
       #orderForm="ngForm"

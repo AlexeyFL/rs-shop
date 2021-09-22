@@ -14,6 +14,8 @@ export class CartComponent implements OnInit {
 
   showOrderForm: boolean = false;
 
+  showOrderFormButton: boolean = false;
+
   showSuccessMessage: boolean = false;
 
   deliveryDate: string = 'Сегодня';
@@ -39,10 +41,20 @@ export class CartComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    // this.cartService.cartGoods$.subscribe((data) => {});
-
     this.currentDate = new Date().toISOString().substring(0, 10);
     this.cartService.getCartGoods();
+    this.cartService.cartGoods$.subscribe((data) => {
+      if (data.length > 0) {
+        this.showOrderFormButton = true;
+      } else {
+        this.showOrderFormButton = false;
+        this.showOrderForm = false;
+      }
+    });
+  }
+
+  onShowOrderForm() {
+    this.showOrderForm = !this.showOrderForm;
   }
 
   navigateTo(category: string, subCategory: string, id: string) {

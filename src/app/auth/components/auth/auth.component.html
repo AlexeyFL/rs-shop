@@ -1,0 +1,146 @@
+<div class="authorization">
+  <button (click)="onShowInfo()" class="btn btn--common">
+    <i class="fas fa-sign-in-alt"></i>Аккаунт
+  </button>
+  <div [ngClass]="{ active: showInfo }" class="authorization__info">
+    <div class="user">
+      <div class="user__avatar">
+        <i class="far fa-user-circle"></i>
+      </div>
+      <div class="user__name" *ngIf="authorized">{{ userName }}</div>
+      <div class="user__item">
+        <button
+          *ngIf="!authorized"
+          (click)="onShowLoginForm()"
+          class="btn user__btn"
+        >
+          Войти
+        </button>
+        <div *ngIf="showLoginError" class="login-error">
+          Нет ракого пользователя, зарегистрируйтесь.
+        </div>
+        <button
+          *ngIf="!authorized"
+          (click)="onShowAuthForm()"
+          class="btn user__btn"
+        >
+          Зарегистрироваться
+        </button>
+        <button *ngIf="authorized" (click)="logout()" class="user__btn btn">
+          Выйти
+        </button>
+      </div>
+      <div class="user__item text--center">
+        <a [routerLink]="['cart']" class="user__link"
+          ><i class="fas fa-shopping-cart"></i>Корзина</a
+        >
+        <!-- <span class="user__count">1</span> -->
+      </div>
+      <div class="user__item">
+        <a [routerLink]="['favorite']" class="user__link"
+          ><i class="far fa-heart"></i>Избранные</a
+        >
+        <!-- <span class="user__count">1</span> -->
+      </div>
+    </div>
+  </div>
+
+  <form
+    *ngIf="!authorized"
+    (ngSubmit)="loginUser(loginForm)"
+    #loginForm="ngForm"
+    class="form authorization__form"
+    [ngClass]="{ active: showLoginForm }"
+  >
+    <span (click)="onCloseLoginForm()" class="close">&times;</span>
+    <h3 class="form__title">Вход</h3>
+
+    <div class="form__row">
+      <label for="login">Логин</label>
+      <input
+        #userLogin="ngModel"
+        ngModel
+        id="login"
+        name="login"
+        type="text"
+        required
+      />
+    </div>
+    <div class="form__row">
+      <label for="password">Пароль</label>
+      <input
+        #userPassword="ngModel"
+        ngModel
+        id="password"
+        name="password"
+        type="password"
+        required
+      />
+    </div>
+
+    <div class="form__row">
+      <button [disabled]="!loginForm.valid" class="form__btn btn">Войти</button>
+    </div>
+  </form>
+
+  <form
+    (ngSubmit)="authorization(authForm)"
+    #authForm="ngForm"
+    class="form authorization__form"
+    [ngClass]="{ active: showAuthForm }"
+  >
+    <span (click)="onCloseLoginForm()" class="close">&times;</span>
+    <h3 class="form__title">Регистрация</h3>
+
+    <div class="form__row">
+      <label for="firstName">Имя</label>
+      <input
+        #firstName="ngModel"
+        ngModel
+        id="firstName"
+        name="firstName"
+        type="text"
+        required
+      />
+    </div>
+    <div class="form__row">
+      <label for="lastName">Фамилия</label>
+      <input
+        #lastName="ngModel"
+        ngModel
+        id="lastName"
+        name="lastName"
+        type="text"
+        required
+      />
+    </div>
+    <div class="form__row">
+      <label for="auth-login">Логин</label>
+      <input
+        #login="ngModel"
+        ngModel
+        id="auth-login"
+        name="login"
+        type="text"
+        required
+      />
+    </div>
+    <div class="form__row">
+      <label for="password">Пароль</label>
+      <input
+        #authPassword="ngModel"
+        ngModel
+        id="auth-password"
+        name="password"
+        type="password"
+        required
+      />
+    </div>
+
+    <div class="form__row">
+      <button [disabled]="!authForm.valid" class="form__btn btn">
+        Зарегистрироваться
+      </button>
+    </div>
+  </form>
+</div>

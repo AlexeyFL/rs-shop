@@ -1,0 +1,13 @@
+.user-location {
+  position: relative;
+  .cities {
+    position: absolute;
+    top: 100%;
+    transform: scale(0);
+    transition: transform 0.3s;
+    &.show {
+      transform: scale(1);
+      z-index: 10;
+    }
+  }
+}

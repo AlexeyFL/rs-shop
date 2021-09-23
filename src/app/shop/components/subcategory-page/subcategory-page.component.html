@@ -1,0 +1,5 @@
+<div *ngFor="let category of databaseService.category$ | async" class="breadcrumbs">
+  <span (click)="navigateTo(category.id)" class="breadcrumbs__item breadcrumbs__item--navigate">{{category.name}}</span>
+  <span class="breadcrumbs__item "> / {{breadcrumbsSubCategory}}</span>
+</div>
+<app-goods-page [goods]="databaseService.subCategoryGoods$ | async"></app-goods-page>

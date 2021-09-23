@@ -1,5 +1,39 @@
 <div class="wrapper">
   <app-header></app-header>
-  <app-main> </app-main>
+  <main class="main">
+    <div class="container">
+      <router-outlet></router-outlet>
+      <div
+        [ngClass]="{ active: categoryService.showCategoryPopup$ | async }"
+        class="popup"
+      >
+        <div
+          *ngFor="
+            let category of databaseService.categories$ | async;
+            let i = index
+          "
+          class="category"
+        >
+          <a
+            [ngClass]="{ active: selectedItem === i }"
+            (mouseenter)="getCurrent(i)"
+            (click)="onClosePopup()"
+            class="category__link"
+            [routerLink]="[category.id]"
+            ><i class="{{ categoryIcons[i] }}"></i>{{ category.name }}</a
+          >
+          <ul class="category-list">
+            <li *ngFor="let subCategory of category.subCategories">
+              <a
+                (click)="onClosePopup()"
+                [routerLink]="[category.id, subCategory.id]"
+                >{{ subCategory.name }}</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </main>
   <app-footer></app-footer>
 </div>

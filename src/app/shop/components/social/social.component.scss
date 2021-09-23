@@ -1,0 +1,22 @@
+.social {
+  text-align: center;
+  padding: 10px 0;
+  &__link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: green;
+    color: #fff;
+    margin-right: 5px;
+    transition: box-shadow 0.3s;
+    &:last-child {
+      margin-right: initial;
+    }
+    &:hover {
+      box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+    }
+  }
+}

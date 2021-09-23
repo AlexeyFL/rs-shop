@@ -1,0 +1,26 @@
+.footer-contacts {
+  text-align: center;
+  padding: 20px 0;
+  &__link {
+    display: inline-block;
+    margin-right: 10px;
+    &:hover {
+      i {
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+      }
+    }
+    i {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      background: green;
+      margin-right: 5px;
+      color: #fff;
+      font-size: 13px;
+      transition: box-shadow 0.3s;
+    }
+  }
+}

@@ -151,7 +151,7 @@
     <div *ngIf="showSuccessMessage" class="success-message">
       <h5>Ваш заказ создан успешно, ожидайте доставку в указанное время</h5>
       <div *ngFor="let good of cartService.cartGoods$ | async" class="cart-goods">
-        {{ good.name }}
+        {{ good.name }} - {{ good.price.toFixed(2) }} р.
       </div>
 
       <div class="success-message__row">

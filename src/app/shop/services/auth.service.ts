@@ -8,7 +8,6 @@ import { localUrl } from '../../constants';
   providedIn: 'root',
 })
 export class AuthService {
-  // token: string | undefined = '';
   loginError$!: Observable<string>;
 
   loginError$$ = new Subject<string>();

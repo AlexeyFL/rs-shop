@@ -1,0 +1,175 @@
+<div class="cart">
+  <h1 class="cart__heading">Список товаров</h1>
+  <div class="cart-list">
+    <div class="cart-list__heading">
+      <span class="cart-list__heading-item"> Товар </span>
+      <span class="cart-list__heading-item"> Количество </span>
+      <span class="cart-list__heading-item"> Доставка </span>
+      <span class="cart-list__heading-item"> Стоимость </span>
+    </div>
+    <div class="cart-list__body">
+      <div
+        *ngFor="let cart of cartService.cartGoods$ | async"
+        class="cart-list__item"
+      >
+        <span (click)="removeGood(cart.id)" class="cart-list__remove"
+          >Удалить</span
+        >
+        <div class="cart-list__part">
+          <div class="cart-list__image">
+            <img src="{{ cart.imageUrls[0] }}" alt="{{ cart.name }}" />
+          </div>
+          <span
+            (click)="navigateTo(cart.category, cart.subCategory, cart.id)"
+            class="cart-list__name"
+            >{{ cart.name }}</span
+          >
+        </div>
+        <div class="cart-list__part">
+          <div class="amount">
+            <button class="btn amount__btn">-</button>
+            <input class="amount__input" type="text" value="1" />
+            <button class="btn amount__btn">+</button>
+          </div>
+        </div>
+        <div class="cart-list__part">
+          <div class="cart-list__delivery">Курьером: {{ deliveryDate }}</div>
+          <div class="cart-list__delivery">Самовывоз: {{ deliveryDate }}</div>
+        </div>
+        <div class="cart-list__part">
+          <span class="cart-list__price">{{ cart.price.toFixed(2) }} р.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cart__btns">
+    <button class="btn btn--common" (click)="onShowOrderForm()" [disabled]="!showOrderFormButton">Заказать</button>
+  </div>
+
+  <div *ngIf="showOrderForm" class="cart-order">
+    <form
+      (ngSubmit)="onSubmit(orderForm)"
+      #orderForm="ngForm"
+      class="form cart-form"
+    >
+      <div class="form__row">
+        <label for="user-name">ФИО</label>
+        <input
+          minlength="3"
+          maxlength="50"
+          ngModel
+          id="user-name"
+          name="userName"
+          type="text"
+          required
+          #userName="ngModel"
+        />
+        <span
+          *ngIf="!userName.valid && userName.touched"
+          class="cart-order__message"
+          >Добавьте ваше имя</span
+        >
+      </div>
+      <div class="form__row">
+        <label for="address">Адрес</label>
+        <input
+          minlength="3"
+          maxlength="50"
+          ngModel
+          id="address"
+          name="address"
+          type="text"
+          required
+          #address="ngModel"
+        />
+        <span
+          *ngIf="!address.valid && address.touched"
+          class="cart-order__message"
+          >Добавьте ваш адрес</span
+        >
+      </div>
+      <div class="form__row">
+        <label for="phone">Телефон</label>
+        <input
+          ngModel
+          id="phone"
+          name="phone"
+          type="tel"
+          pattern="^\+(?:[0-9]?){6,14}[0-9]$"
+          required
+          #phone="ngModel"
+        />
+        <span *ngIf="!phone.valid && phone.touched" class="cart-order__message"
+          >Добавьте ваш телефон</span
+        >
+      </div>
+      <div class="form__row">
+        <label for="delivery">Время и дата доставки</label>
+        <input
+          type="date"
+          id="delivery"
+          name="delivery"
+          value="{{ currentDate }}"
+          min="{{ currentDate }}"
+          max="2022-12-31"
+          required
+          ngModel
+          #date="ngModel"
+        />
+        <select required ngModel name="time" id="time" #time="ngModel">
+          <option value="" selected disabled hidden></option>
+          <option value="10 до 12">10-12</option>
+          <option value="12 до 16">12-16</option>
+          <option value="16 до 20">16-20</option>
+        </select>
+
+        <span *ngIf="!time.valid && time.touched" class="cart-order__message"
+          >Добавьте время доставки</span
+        >
+        <span *ngIf="!date.valid && date.touched" class="cart-order__message"
+          >Добавьте дату доставки</span
+        >
+      </div>
+      <div class="form__row">
+        <label for="comment">Комментарий</label>
+        <textarea
+          maxlength="250"
+          ngModel
+          name="comment"
+          id="comment"
+          cols="30"
+          rows="10"
+        ></textarea>
+      </div>
+      <div class="form__row">
+        <button [disabled]="!orderForm.valid" class="btn form__btn">
+          Подтвердить заказ
+        </button>
+      </div>
+    </form>
+    <div *ngIf="showSuccessMessage" class="success-message">
+      <h5>Ваш заказ создан успешно, ожидайте доставку в указанное время</h5>
+      <div *ngFor="let good of cartService.cartGoods$ | async" class="cart-goods">
+        {{ good.name }} - {{ good.price.toFixed(2) }} р.
+      </div>
+
+      <div class="success-message__row">
+        <span class="success-message__head">Ваше имя: </span
+        >{{ cartOrderSuccess.userName }}
+      </div>
+      <div class="success-message__row">
+        <span class="success-message__head">Ваш адрес: </span
+        >{{ cartOrderSuccess.address }}
+      </div>
+      <div class="success-message__row">
+        <span class="success-message__head">Ваш телефон:</span
+        >{{ cartOrderSuccess.phone }}
+      </div>
+      <div class="success-message__row">
+        <span class="success-message__head">Доставка: </span
+        >{{ cartOrderSuccess.delivery }} с {{ cartOrderSuccess.time }} часов
+      </div>
+    </div>
+  </div>
+</div>

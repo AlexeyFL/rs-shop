@@ -1,0 +1,6 @@
+*/**/polyfills.ts
+*/**/main.ts
+*/**/*.pipe.ts
+*/**/environment.ts
+*/**/environment.prod.ts
+hmr.ts

@@ -1,0 +1,54 @@
+<div *ngIf="good" class="breadcrumbs">
+  <span
+    (click)="navigateTo(breadcrumbsCategory)"
+    class="breadcrumbs__item breadcrumbs__item--navigate"
+    >{{ breadcrumbsCategory.name }}</span
+  >
+  <span
+    (click)="navigateTo(breadcrumbsSubCategory)"
+    class="breadcrumbs__item breadcrumbs__item--navigate"
+  >
+    / {{ breadcrumbsSubCategory.name }}</span
+  >
+  <span class="breadcrumbs__item"> / {{ good.name }}</span>
+</div>
+<div *ngIf="good" class="good-card">
+  <h3 class="good-card__heading">{{ good.name }}</h3>
+  <div class="slider">
+    <i *ngIf="good.rating > 2" class="fab fa-hotjar good-card__icon"></i>
+    <div class="slider__thumbs">
+      <span
+        *ngFor="let thumb of good.imageUrls; let i = index"
+        class="slider__thumb"
+        [ngClass]="{ active: selectedItem === i }"
+      >
+        <img
+          (click)="getCurrentUrl($event, i)"
+          src="{{ thumb }}"
+          alt="{{ good.name }}"
+      /></span>
+    </div>
+    <div class="slider__main">
+      <img #mainImage src="{{ good.imageUrls[0] }}" alt="{{ good.name }}" />
+    </div>
+  </div>
+  <div class="good-card__buttons">
+    <button
+      [disabled]="good.isInCart"
+      (click)="addToCart(good.id); good.isInCart = true"
+      class="btn good-card__btn"
+    >
+      В корзину
+    </button>
+    <button
+      [disabled]="good.isFavorite"
+      (click)="addToFavorite(good.id); good.isFavorite = true"
+      class="btn good-card__btn"
+    >
+      В избранное
+    </button>
+  </div>
+  <div class="good-card__description">
+    <p>{{ good.description }}</p>
+  </div>
+</div>

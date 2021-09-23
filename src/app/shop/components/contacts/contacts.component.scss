@@ -1,0 +1,13 @@
+.contacts {
+  position: relative;
+  &__drop {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    transform: scale(0);
+    transition: transform 0.3s;
+    &.show {
+      transform: scale(1);
+    }
+  }
+}

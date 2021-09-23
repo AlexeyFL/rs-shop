@@ -1,0 +1,32 @@
+<div class="search">
+  <input
+    #search
+    class="search__input"
+    type="text"
+    placeholder="Поиск товаров"
+  />
+  <ul #searchList class="search__list">
+    <li *ngFor="let category of dataBaseService.searchedCategories$ | async">
+      <span
+        (click)="
+          clearSearch(); passCategoryId(category.categoryId); navigateTo(category)
+        "
+        >{{
+          category.subcategoryId
+            ? category.subcategoryName
+            : category.categoryName
+        }}</span
+      >
+    </li>
+    <li *ngFor="let good of dataBaseService.goods$ | async">
+      <div class="search-good">
+        <a
+          (click)="clearSearch()"
+          [routerLink]="[good.category, good.subCategory, good.id]"
+          >{{ good.name }}</a
+        >
+        <span>{{ good.price }} р.</span>
+      </div>
+    </li>
+  </ul>
+</div>

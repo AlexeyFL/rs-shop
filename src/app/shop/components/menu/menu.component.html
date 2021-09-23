@@ -1,0 +1,27 @@
+<div class="categories-menu">
+  <div class="container header__menu">
+    <nav class="menu menu--desktop">
+      <a
+        *ngFor="let category of categories"
+        routerLinkActive="active"
+        class="menu__link"
+        [routerLink]="[category.id]"
+        (click)="getGoods(category.id); onClosePopup()"
+        >{{ category.name }}</a
+      >
+    </nav>
+    <div [ngClass]="{ active: showMenu }" class="menu menu--mobile">
+      <a
+        *ngFor="let category of categories"
+        class="menu__link"
+        routerLinkActive="active"
+        [routerLink]="[category.id]"
+        (click)="getGoods(category.id); onClosePopup();showMobileMenu()"
+        >{{ category.name }}</a
+      >
+    </div>
+    <button (click)="showMobileMenu()" class="btn categories-menu__btn">
+      <i class="fas fa-bars"></i>
+    </button>
+  </div>
+</div>

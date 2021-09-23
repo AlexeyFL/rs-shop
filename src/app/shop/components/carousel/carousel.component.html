@@ -1,0 +1,23 @@
+<div class="main-carousel">
+  <swiper [config]="config">
+    <ng-template
+      *ngFor="let slide of databaseService.customCategoryGoods$ | async"
+      swiperSlide
+    >
+      <div (click)="goToGood(slide.id, slide.categoryId, slide.subCategoryId)" class="main-carousel__slide">
+        <div class="main-carousel__slide-item">
+          <div class="main-carousel__slide-image">
+            <img src="{{ slide.imageUrls[0] }}" alt="{{ slide.name }}" />
+          </div>
+        </div>
+        <div class="main-carousel__slide-item">
+          <span class="main-carousel__slide-name">{{ slide.name }}</span>
+          <span class="main-carousel__slide-price"
+            >{{ slide.price.toFixed(2) }} р.</span
+          >
+        </div>
+        <!-- <pre>{{ slide | json }}</pre> -->
+      </div>
+    </ng-template>
+  </swiper>
+</div>
